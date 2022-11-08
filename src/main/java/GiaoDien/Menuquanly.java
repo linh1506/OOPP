@@ -21,7 +21,13 @@ public class Menuquanly extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
-    
+    public JButton getBtn_QuanLySuCo() {
+        return btn_QuanLySuCo;
+    }
+
+    public void setBtn_QuanLySuCo(JButton btn_QuanLySuCo) {
+        this.btn_QuanLySuCo = btn_QuanLySuCo;
+    }
     
     public JButton getBtn_DangXuat() {
         return btn_DangXuat;
@@ -76,7 +82,7 @@ public class Menuquanly extends javax.swing.JFrame {
         btn_Thongtin = new javax.swing.JButton();
         label_TenQuanLy = new javax.swing.JLabel();
         btn_Quanlynhanvien = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btn_QuanLySuCo = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -127,9 +133,9 @@ public class Menuquanly extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 153, 153));
-        jButton1.setText("Quản lý sự cố");
+        btn_QuanLySuCo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btn_QuanLySuCo.setForeground(new java.awt.Color(0, 153, 153));
+        btn_QuanLySuCo.setText("Quản lý sự cố");
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 153, 153));
@@ -153,7 +159,7 @@ public class Menuquanly extends javax.swing.JFrame {
                             .addComponent(btn_Thongke, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_Quanlynhanvien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_Thongtin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_QuanLySuCo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
@@ -170,7 +176,7 @@ public class Menuquanly extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btn_Thongtin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_QuanLySuCo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 75, Short.MAX_VALUE))
@@ -221,10 +227,10 @@ public class Menuquanly extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_DangXuat;
+    private javax.swing.JButton btn_QuanLySuCo;
     private javax.swing.JButton btn_Quanlynhanvien;
     private javax.swing.JButton btn_Thongke;
     private javax.swing.JButton btn_Thongtin;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

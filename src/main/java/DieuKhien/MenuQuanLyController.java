@@ -28,6 +28,13 @@ public class MenuQuanLyController implements MenuInterface{
         DangXuat();
         QuanLyNhanVien();
         ThongTinTaiKhoan();
+        QuanLySuCo();
+    }
+    
+    public void QuanLySuCo() {
+        this.menuquanly.getBtn_QuanLySuCo().addActionListener((e) -> {
+            ThongKeSuCoController thongKeSuCoController = new ThongKeSuCoController(this);
+        });
     }
     
     @Override

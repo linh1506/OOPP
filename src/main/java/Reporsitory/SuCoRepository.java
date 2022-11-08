@@ -5,9 +5,13 @@
 package Reporsitory;
 
 import Database.DatabaseConnect;
+import Entity.Person;
 import Entity.SuCo;
+import java.sql.ResultSet;
 //import java.sql.Connection;
 import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,5 +32,33 @@ public class SuCoRepository {
                 return 0;
             }
         return 0;
+    }
+    
+    public static ArrayList<SuCo> GetDanhSachSuCo() {
+        ArrayList<SuCo> list = new ArrayList<>();
+        String query = "SELECT * FROM `suco`";
+        LocalDateTime localDateTime;
+        String Type;
+        String Description;
+        boolean IsKhachDenBu;
+        String Cost;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = DatabaseConnect.getConnection().createStatement();
+            rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                localDateTime = rs.getObject(1, LocalDateTime.class);
+                Type = rs.getString(2);
+                Description = rs.getString(3);
+                IsKhachDenBu = rs.getBoolean(4);
+                Cost = rs.getString(5);
+                SuCo suCo = new SuCo(Type, Description, IsKhachDenBu, Cost);
+                suCo.setLocalDateTime(localDateTime);
+                list.add(suCo);
+            }
+        } catch (Exception e) {
+        }
+        return list;
     }
 }

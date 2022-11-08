@@ -23,7 +23,7 @@ public class PersonRepository {
     }
     
     public static Person getPersonfromDB(String SoDienThoai) {
-        String query = "SELECT * FROM `nhansu` WHERE `SoDienThoai` LIKE "+SoDienThoai;
+        String query = "SELECT * FROM `nhansu` WHERE `SoDienThoai` LIKE '"+SoDienThoai+"';";
         String Ten, MatKhau;
         boolean ChucVu;
         Statement stmt = null;
@@ -80,7 +80,7 @@ public class PersonRepository {
     }
     
     public static Person TimKiemSoDienThoai(String SoDienThoai, int ChucVu) {
-        String query = "SELECT * FROM `nhansu` WHERE `SoDienThoai` LIKE "+SoDienThoai+" AND `ChucVu` = "+ChucVu;
+        String query = "SELECT * FROM `nhansu` WHERE `SoDienThoai` LIKE '"+SoDienThoai+"' AND `ChucVu` = "+ChucVu;
         try {
             Statement stmt = DatabaseConnect.getConnection().createStatement();
             ResultSet rs = stmt.executeQuery(query);
@@ -104,7 +104,7 @@ public class PersonRepository {
         } else {
             ChucVu = 1;
         }
-        String query = "UPDATE `nhansu` SET `Ten` = '"+person.getTen()+"', `ChucVu` = b'"+ChucVu+"', `MatKhau` = '"+person.getMatKhau()+"' WHERE `SoDienThoai` LIKE "+person.getSoDienThoai()+";";
+        String query = "UPDATE `nhansu` SET `Ten` = '"+person.getTen()+"', `ChucVu` = b'"+ChucVu+"', `MatKhau` = '"+person.getMatKhau()+"' WHERE `SoDienThoai` LIKE '"+person.getSoDienThoai()+"';";
         try {
             Statement stmt = DatabaseConnect.getConnection().createStatement();
             int i = stmt.executeUpdate(query);
@@ -119,7 +119,7 @@ public class PersonRepository {
     public static int XoaNhanVien(ArrayList<String> list) {
         int i=1;
         for (String s:list) {
-            String query = "DELETE FROM nhansu WHERE `SoDienThoai` LIKE "+s;
+            String query = "DELETE FROM nhansu WHERE `SoDienThoai` LIKE '"+s+"';";
             try {
                 Statement stmt = DatabaseConnect.getConnection().createStatement();
                 i = stmt.executeUpdate(query);
