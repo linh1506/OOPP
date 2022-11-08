@@ -67,7 +67,7 @@
                                       <Component id="jButton4" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jButton3" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jButton6" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btn_BaoCaoSuCo" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -107,7 +107,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButton5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_BaoCaoSuCo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btn_Thongtin" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -195,7 +195,7 @@
             <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; b&#xe3;i xe"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton6">
+        <Component class="javax.swing.JButton" name="btn_BaoCaoSuCo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>

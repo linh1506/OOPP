@@ -25,6 +25,13 @@ public class MenuNhanVienController implements MenuInterface{
         this.loginController.SetVisible(false);
         DangXuat();
         ThongTinTaiKhoan();
+        BaoCaoSuCo();
+    }
+    
+    public void BaoCaoSuCo() {
+        this.menunhanvien.getBtn_BaoCaoSuCo().addActionListener((e) -> {
+            BaoCaoSuCoController baoCaoSuCoController = new BaoCaoSuCoController(this);
+        });
     }
     
     @Override

@@ -18,6 +18,14 @@ public class Menunhanvien extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
+    public JButton getBtn_BaoCaoSuCo() {
+        return btn_BaoCaoSuCo;
+    }
+
+    public void setBtn_BaoCaoSuCo(JButton btn_BaoCaoSuCo) {
+        this.btn_BaoCaoSuCo = btn_BaoCaoSuCo;
+    }
+
     public JButton getBtn_Thongtin() {
         return btn_Thongtin;
     }
@@ -60,7 +68,7 @@ public class Menunhanvien extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btn_BaoCaoSuCo = new javax.swing.JButton();
         btn_Thongtin = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -105,9 +113,9 @@ public class Menunhanvien extends javax.swing.JFrame {
         jButton5.setForeground(new java.awt.Color(0, 153, 153));
         jButton5.setText("Quản lý bãi xe");
 
-        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(0, 153, 153));
-        jButton6.setText("Báo cáo sự cố");
+        btn_BaoCaoSuCo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btn_BaoCaoSuCo.setForeground(new java.awt.Color(0, 153, 153));
+        btn_BaoCaoSuCo.setText("Báo cáo sự cố");
 
         btn_Thongtin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn_Thongtin.setForeground(new java.awt.Color(0, 153, 153));
@@ -188,7 +196,7 @@ public class Menunhanvien extends javax.swing.JFrame {
                                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(btn_BaoCaoSuCo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(67, 67, 67)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -219,7 +227,7 @@ public class Menunhanvien extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton5)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton6)
+                        .addComponent(btn_BaoCaoSuCo)
                         .addGap(18, 18, 18)
                         .addComponent(btn_Thongtin))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -280,13 +288,13 @@ public class Menunhanvien extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_BaoCaoSuCo;
     private javax.swing.JButton btn_Exit;
     private javax.swing.JButton btn_Thongtin;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
