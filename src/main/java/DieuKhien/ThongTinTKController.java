@@ -6,7 +6,7 @@ package DieuKhien;
 
 import Entity.Person;
 import GiaoDien.Thongtintaikhoan;
-import Reporsitory.PersonRepository;
+import Repository.PersonRepository;
 import java.awt.Color;
 
 /**

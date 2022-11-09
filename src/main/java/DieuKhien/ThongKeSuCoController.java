@@ -7,7 +7,7 @@ package DieuKhien;
 import Entity.Person;
 import Entity.SuCo;
 import GiaoDien.Thongkesuco;
-import Reporsitory.SuCoRepository;
+import Repository.SuCoRepository;
 import java.awt.Color;
 import java.awt.Component;
 import java.time.format.DateTimeFormatter;

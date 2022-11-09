@@ -6,7 +6,7 @@ package DieuKhien;
 
 import Entity.SuCo;
 import GiaoDien.Baocaosuco;
-import Reporsitory.SuCoRepository;
+import Repository.SuCoRepository;
 
 /**
  *

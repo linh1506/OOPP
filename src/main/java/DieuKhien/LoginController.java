@@ -8,7 +8,7 @@ import Entity.Person;
 import java.awt.event.ActionEvent;
 
 import GiaoDien.Login;
-import Reporsitory.PersonRepository;
+import Repository.PersonRepository;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 

@@ -6,7 +6,7 @@ package DieuKhien;
 
 import Entity.Person;
 import Giaodien.Quanlynhanvien;
-import Reporsitory.PersonRepository;
+import Repository.PersonRepository;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;

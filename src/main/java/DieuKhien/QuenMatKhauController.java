@@ -6,7 +6,7 @@ package DieuKhien;
 
 import Entity.Person;
 import GiaoDien.Quenmatkhau;
-import Reporsitory.PersonRepository;
+import Repository.PersonRepository;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 

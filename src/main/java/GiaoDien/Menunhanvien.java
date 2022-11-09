@@ -18,6 +18,14 @@ public class Menunhanvien extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
+    public JButton getBtn_NhanXe() {
+        return btn_NhanXe;
+    }
+
+    public void setBtn_NhanXe(JButton btn_NhanXe) {
+        this.btn_NhanXe = btn_NhanXe;
+    }
+
     public JButton getBtn_BaoCaoSuCo() {
         return btn_BaoCaoSuCo;
     }
@@ -64,7 +72,7 @@ public class Menunhanvien extends javax.swing.JFrame {
         btn_Exit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton2 = new javax.swing.JButton();
+        btn_NhanXe = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -97,9 +105,9 @@ public class Menunhanvien extends javax.swing.JFrame {
 
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 153, 153));
-        jButton2.setText("Nhận xe");
+        btn_NhanXe.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btn_NhanXe.setForeground(new java.awt.Color(0, 153, 153));
+        btn_NhanXe.setText("Nhận xe");
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 153, 153));
@@ -195,7 +203,7 @@ public class Menunhanvien extends javax.swing.JFrame {
                                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_NhanXe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btn_BaoCaoSuCo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(67, 67, 67)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -219,7 +227,7 @@ public class Menunhanvien extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(btn_NhanXe)
                         .addGap(18, 18, 18)
                         .addComponent(jButton3)
                         .addGap(18, 18, 18)
@@ -290,8 +298,8 @@ public class Menunhanvien extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_BaoCaoSuCo;
     private javax.swing.JButton btn_Exit;
+    private javax.swing.JButton btn_NhanXe;
     private javax.swing.JButton btn_Thongtin;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;

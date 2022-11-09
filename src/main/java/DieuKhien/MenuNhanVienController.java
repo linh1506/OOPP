@@ -26,6 +26,13 @@ public class MenuNhanVienController implements MenuInterface{
         DangXuat();
         ThongTinTaiKhoan();
         BaoCaoSuCo();
+        NhanXe();
+    }
+        
+    public void NhanXe() {
+        this.menunhanvien.getBtn_NhanXe().addActionListener((e) -> {
+            NhanXeController nhanXeController = new NhanXeController(this);
+        });
     }
     
     public void BaoCaoSuCo() {
