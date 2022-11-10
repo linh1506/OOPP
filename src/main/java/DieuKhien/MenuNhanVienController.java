@@ -6,6 +6,7 @@ package DieuKhien;
 
 import Entity.Person;
 import GiaoDien.Menunhanvien;
+import Repository.ChoDeXeRepository;
 import Repository.VeNgayRepository;
 import Repository.VeThangRepository;
 
@@ -31,16 +32,25 @@ public class MenuNhanVienController implements MenuInterface{
         NhanXe();
         InSLXeMay();
         InSLOto();
+        NhanVienXuatXe();
     }
         
+    public void NhanVienXuatXe() {
+        this.menunhanvien.getBtn_NhanVienXuatXe().addActionListener((e) -> {
+            NhanVienTraController nhanVienTraController = new NhanVienTraController(this);
+        });
+    }
+    
     public void InSLXeMay() {
         int SL = VeThangRepository.CountInArea(80000) + VeNgayRepository.CountInArea(5000);
-        this.menunhanvien.getLabel_SLXeMay().setText(String.valueOf(SL) + " xe");
+        int SLMax = ChoDeXeRepository.GetSoLuongToiDaByLoaiChoDe("XeMay");
+        this.menunhanvien.getLabel_SLXeMay().setText(String.valueOf(SL) + " / "+String.valueOf(SLMax)+" xe");
     }
     
     public void InSLOto() {
         int SL = VeThangRepository.CountInArea(580000) + VeNgayRepository.CountInArea(20000);
-        this.menunhanvien.getLabel_SLOto().setText(String.valueOf(SL) + " xe");
+        int SLMax = ChoDeXeRepository.GetSoLuongToiDaByLoaiChoDe("Oto");
+        this.menunhanvien.getLabel_SLOto().setText(String.valueOf(SL) + " / "+String.valueOf(SLMax)+" xe");
     }
     
     public void NhanXe() {
