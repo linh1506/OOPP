@@ -31,4 +31,35 @@ public class VeNgayRepository {
         }
         return list;
     }
+    
+    public static int SetStatusTicketByID(String IDVe, int TrangThai) {
+        String query = "UPDATE `vengay` SET `TrangThai` = '"+TrangThai+"' WHERE `MaVe` = '"+IDVe+"';";
+         try {
+            Statement stmt = DatabaseConnect.getConnection().createStatement();
+            int i = stmt.executeUpdate(query);
+            if (i > 0) 
+                return 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    public static int CountInArea(int GiaVe) {
+        String Gia = String.valueOf(GiaVe);
+        String query = "SELECT COUNT(*) FROM `vengay` WHERE `GiaVeNgay` = "+Gia+" AND `TrangThai` = 1;";
+        Statement stmt = null;
+        ResultSet rs = null;
+        int SoXe;
+        try {
+            stmt = DatabaseConnect.getConnection().createStatement();
+            rs = stmt.executeQuery(query);
+            rs.next();
+            SoXe = rs.getInt(1);;
+            return SoXe;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

@@ -5,10 +5,15 @@
 package DieuKhien;
 
 import Entity.VeNgay;
+import Entity.VeNgayGui;
 import Entity.VeThang;
+import Entity.VeThangGui;
 import GiaoDien.Nhanxe;
+import Repository.VeNgayGuiRepository;
 import Repository.VeNgayRepository;
+import Repository.VeThangGuiRepository;
 import Repository.VeThangRepository;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 
@@ -29,14 +34,48 @@ public class NhanXeController {
         IsSelected();
         IsVeNgay();
         IsXeMay();
+        XacNhanNhanXe();
     }
     
     public void IsVeNgay() {
         this.nhanxe.getCombobox_LoaiVe().addActionListener((e) -> {
             IsSelected();
-
         });
+    }
+    
+    public void XacNhanNhanXe() {
         
+        this.nhanxe.getBtn_NhanXe().addActionListener((e) -> {
+            String IDChoDe =  ((this.nhanxe.getCombobox_LoaiXe().getSelectedItem().toString().equals("Xe máy")) ? "01" : "02");
+            String BienSoXe = this.nhanxe.getTxt_BienSoXe().getText();
+            String IDVe = this.nhanxe.getCombobox_MaVe().getSelectedItem().toString();
+            LocalDateTime ThoiGianGui = LocalDateTime.now();
+
+            if (this.nhanxe.getCombobox_LoaiVe().getSelectedItem().toString().equals("Vé ngày")) {
+                int Gia = (IDChoDe.equals("01") ? 3000 : 20000);
+                VeNgayGui veNgayGui = new VeNgayGui(ThoiGianGui, IDChoDe, IDVe, BienSoXe, null, Gia);
+                int isSuccess = VeNgayGuiRepository.NhanXe(veNgayGui);
+                int isSuccess2 = VeNgayRepository.SetStatusTicketByID(IDVe, 1);
+                if (isSuccess == 1 && isSuccess2 ==1) {
+                    System.out.println("Nhan xe thanh cong");
+                }
+                else {
+                    System.out.println("Nhan xe loi");
+                }
+            }
+            else {
+                VeThangGui veThangGui = new VeThangGui(ThoiGianGui, IDChoDe, IDVe, BienSoXe, null);
+                int isSuccess = VeThangGuiRepository.NhanXe(veThangGui);
+                int isSuccess2 = VeThangRepository.SetStatusTicketByID(IDVe, 1);
+                if (isSuccess == 1 && isSuccess2 ==1) {
+                    System.out.println("Nhan xe thanh cong");
+                }
+                else {
+                    System.out.println("Nhan xe loi");
+                }
+            }
+            IsSelected();
+        });
     }
     
     public void IsXeMay() {

@@ -8,7 +8,7 @@ package Entity;
  *
  * @author admin
  */
-public class VeNgay implements VeInterface{
+public class VeNgay {
     private String MaVe;
     private int GiaVe;
     private boolean TrangThai;

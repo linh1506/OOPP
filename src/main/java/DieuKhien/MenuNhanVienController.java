@@ -6,6 +6,8 @@ package DieuKhien;
 
 import Entity.Person;
 import GiaoDien.Menunhanvien;
+import Repository.VeNgayRepository;
+import Repository.VeThangRepository;
 
 /**
  *
@@ -27,8 +29,20 @@ public class MenuNhanVienController implements MenuInterface{
         ThongTinTaiKhoan();
         BaoCaoSuCo();
         NhanXe();
+        InSLXeMay();
+        InSLOto();
     }
         
+    public void InSLXeMay() {
+        int SL = VeThangRepository.CountInArea(80000) + VeNgayRepository.CountInArea(5000);
+        this.menunhanvien.getLabel_SLXeMay().setText(String.valueOf(SL) + " xe");
+    }
+    
+    public void InSLOto() {
+        int SL = VeThangRepository.CountInArea(580000) + VeNgayRepository.CountInArea(20000);
+        this.menunhanvien.getLabel_SLOto().setText(String.valueOf(SL) + " xe");
+    }
+    
     public void NhanXe() {
         this.menunhanvien.getBtn_NhanXe().addActionListener((e) -> {
             NhanXeController nhanXeController = new NhanXeController(this);
