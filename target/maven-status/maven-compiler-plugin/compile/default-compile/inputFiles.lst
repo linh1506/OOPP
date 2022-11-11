@@ -1,6 +1,8 @@
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Entity\SuCo.java
+C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Traxe.java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\DieuKhien\QuanLyNhanVienController.java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Repository\VeThangRepository.java
+C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\DieuKhien\NhanVienTraController.java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Quenmatkhau.java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Entity\Person.java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Menunhanvien.java
@@ -15,6 +17,7 @@ C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Entity\VeNgay.java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Database\DatabaseConnect.java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\DieuKhien\BaoCaoSuCoController.java
+C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Repository\ChoDeXeRepository.java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\DieuKhien\MenuInterface.java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Entity\VeNgayGui.java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Thongtintaikhoan.java
@@ -25,6 +28,7 @@ C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\com\mycompany\ql_baixe\MainClass.java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Entity\VeThang.java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Quanlynhanvien.java
+C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Entity\ChoDeXe.java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Entity\VeThangGui.java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Repository\PersonRepository.java
 C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Login.java

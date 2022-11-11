@@ -48,20 +48,20 @@ public class Traxe extends javax.swing.JFrame {
         this.table_XeTheoMaVe = table_XeTheoMaVe;
     }
 
-    public JLabel getTxt_MaVe() {
-        return txt_MaVe;
+    public JLabel getLabel_MaVe() {
+        return label_MaVe;
     }
 
-    public void setTxt_MaVe(JLabel txt_MaVe) {
-        this.txt_MaVe = txt_MaVe;
+    public void setLabel_MaVe(JLabel label_MaVe) {
+        this.label_MaVe = label_MaVe;
     }
 
-    public JLabel getTxt_ThanhTien() {
-        return txt_ThanhTien;
+    public JLabel getLabel_ThanhTien() {
+        return label_ThanhTien;
     }
 
-    public void setTxt_ThanhTien(JLabel txt_ThanhTien) {
-        this.txt_ThanhTien = txt_ThanhTien;
+    public void setLabel_ThanhTien(JLabel label_ThanhTien) {
+        this.label_ThanhTien = label_ThanhTien;
     }
 
     public JTextField getTxt_TimMaVe() {
@@ -94,8 +94,8 @@ public class Traxe extends javax.swing.JFrame {
         btn_TraXe = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txt_MaVe = new javax.swing.JLabel();
-        txt_ThanhTien = new javax.swing.JLabel();
+        label_MaVe = new javax.swing.JLabel();
+        label_ThanhTien = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,10 +146,7 @@ public class Traxe extends javax.swing.JFrame {
 
         table_XeTheoMaVe.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Biển số xe", "Loại xe", "Thời gian gửi", "Mã vé"
@@ -186,11 +183,11 @@ public class Traxe extends javax.swing.JFrame {
 
         jLabel4.setText("Thành tiền: ");
 
-        txt_MaVe.setForeground(new java.awt.Color(255, 153, 153));
-        txt_MaVe.setText("Mã vé");
+        label_MaVe.setForeground(new java.awt.Color(255, 153, 153));
+        label_MaVe.setText("Mã vé");
 
-        txt_ThanhTien.setForeground(new java.awt.Color(255, 153, 153));
-        txt_ThanhTien.setText("Thành tiền");
+        label_ThanhTien.setForeground(new java.awt.Color(255, 153, 153));
+        label_ThanhTien.setText("Thành tiền");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -219,8 +216,8 @@ public class Traxe extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_MaVe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_ThanhTien, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))))
+                            .addComponent(label_MaVe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(label_ThanhTien, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -239,11 +236,11 @@ public class Traxe extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txt_MaVe))
+                    .addComponent(label_MaVe))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txt_ThanhTien))
+                    .addComponent(label_ThanhTien))
                 .addGap(18, 18, 18)
                 .addComponent(btn_TraXe, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
@@ -280,9 +277,9 @@ public class Traxe extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel label_MaVe;
+    private javax.swing.JLabel label_ThanhTien;
     private javax.swing.JTable table_XeTheoMaVe;
-    private javax.swing.JLabel txt_MaVe;
-    private javax.swing.JLabel txt_ThanhTien;
     private javax.swing.JTextField txt_TimMaVe;
     // End of variables declaration//GEN-END:variables
 }

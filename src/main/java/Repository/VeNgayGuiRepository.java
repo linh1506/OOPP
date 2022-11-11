@@ -59,4 +59,17 @@ public class VeNgayGuiRepository {
         }
         return list;
     }
+    
+    public static int SetThoiGianTra(VeNgayGui veNgayGui) {
+        String query = "UPDATE `vengaygui` SET `ThoiGianTra` = '"+veNgayGui.getThoiGianTra()+"', `Gia` = '"+veNgayGui.getGia()+"' WHERE `ThoiGianGui` = '"+veNgayGui.getThoiGianGui()+"' AND `IDChoDe` = '"+veNgayGui.getIDChoDe()+"' AND `IDVe` = '"+veNgayGui.getIDVe()+"';";
+        try {
+            Statement stmt = DatabaseConnect.getConnection().createStatement();
+            int i = stmt.executeUpdate(query);
+            if (i > 0) 
+                return 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

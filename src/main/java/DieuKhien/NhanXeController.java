@@ -103,13 +103,12 @@ public class NhanXeController {
         this.nhanxe.getBtn_Thoat().addActionListener((e) -> {
             SetVisible(false);
             this.menuNhanVienController.SetVisible(true);
-            this.menuNhanVienController.InSLOto();
-            this.menuNhanVienController.InSLXeMay();
         });
     }
     
     public void SetVisible(boolean b) {
         this.nhanxe.setVisible(b);
+
     }
     
     public void IsSelected() {

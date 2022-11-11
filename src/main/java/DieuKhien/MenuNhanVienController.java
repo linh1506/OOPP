@@ -68,6 +68,8 @@ public class MenuNhanVienController implements MenuInterface{
     @Override
     public void SetVisible(boolean b) {
         this.menunhanvien.setVisible(b);
+        InSLOto();
+        InSLXeMay();
     }
     
     @Override
