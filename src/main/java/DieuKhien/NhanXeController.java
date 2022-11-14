@@ -50,7 +50,9 @@ public class NhanXeController {
             String BienSoXe = this.nhanxe.getTxt_BienSoXe().getText();
             String IDVe = this.nhanxe.getCombobox_MaVe().getSelectedItem().toString();
             LocalDateTime ThoiGianGui = LocalDateTime.now();
-
+            if(BienSoXe.equals("")){
+                ThongBaoPopUp("Bien so xe khong duoc de trong","thong bao!");
+            }
             if (this.nhanxe.getCombobox_LoaiVe().getSelectedItem().toString().equals("Vé ngày")) {
                 int Gia = (IDChoDe.equals("01") ? 3000 : 20000);
                 VeNgayGui veNgayGui = new VeNgayGui(ThoiGianGui, IDChoDe, IDVe, BienSoXe, null, Gia);
