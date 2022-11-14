@@ -13,17 +13,27 @@ public class Person {
     private String Ten;
     private boolean ChucVu;
     private String MatKhau;
+    private int ID;
 
     public Person() {
     }
 
     
     
-    public Person(String SoDienThoai, String Ten, boolean ChucVu, String MatKhau) {
+    public Person(String SoDienThoai, String Ten, boolean ChucVu, String MatKhau, int ID) {
         this.SoDienThoai = SoDienThoai;
         this.Ten = Ten;
         this.ChucVu = ChucVu;
         this.MatKhau = MatKhau;
+        this.ID = ID;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getSoDienThoai() {

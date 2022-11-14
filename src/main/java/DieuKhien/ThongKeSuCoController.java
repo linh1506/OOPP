@@ -39,14 +39,14 @@ public class ThongKeSuCoController {
 //        for (SuCo suCo:list){
 //            System.out.println(suCo.getLocalDateTime()); 
 //        }
-        DateTimeFormatter formatter = DateTimeFormatter.BASIC_ISO_DATE;
+//        DateTimeFormatter formatter = DateTimeFormatter.BASIC_ISO_DATE;
         DefaultTableModel model = (DefaultTableModel) this.thongkesuco.getTable_ThongKeSuCo().getModel();
         this.thongkesuco.getTable_ThongKeSuCo().setDefaultRenderer(Object.class, new MyTableRenderer());
         this.thongkesuco.getTable_ThongKeSuCo().setRowHeight(50);
         model.setRowCount(0);
                
                for (SuCo suCo:list) {
-                       String ThoiGian = suCo.getLocalDateTime().format(formatter);
+                       String ThoiGian = suCo.getLocalDateTime().toString();
                         String isKhachDenBu = ((suCo.isIsKhachDenBu() == true) ? "true" : "false");
 
                        String oblist[] = {ThoiGian,suCo.getType(),suCo.getDescription(),suCo.getCost(),isKhachDenBu};

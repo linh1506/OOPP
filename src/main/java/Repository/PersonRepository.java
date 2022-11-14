@@ -25,6 +25,7 @@ public class PersonRepository {
     public static Person getPersonfromDB(String SoDienThoai) {
         String query = "SELECT * FROM `nhansu` WHERE `SoDienThoai` LIKE '"+SoDienThoai+"';";
         String Ten, MatKhau;
+        int ID;
         boolean ChucVu;
         Statement stmt = null;
         ResultSet rs = null;
@@ -35,8 +36,9 @@ public class PersonRepository {
             Ten = rs.getString(2);
             ChucVu = rs.getBoolean(3);
             MatKhau = rs.getString(4);
+            ID = rs.getInt(5);
             System.out.println(Ten+ChucVu+MatKhau);
-            Person person = new Person(SoDienThoai, Ten, ChucVu, MatKhau);
+            Person person = new Person(SoDienThoai, Ten, ChucVu, MatKhau,ID);
             return person;
         } catch (Exception e) {
             e.printStackTrace();
@@ -50,6 +52,7 @@ public class PersonRepository {
         String Ten, MatKhau, SoDienThoai;
         Statement stmt = null;
         ResultSet rs = null;
+        int ID;
         try {
             stmt = DatabaseConnect.getConnection().createStatement();
             rs = stmt.executeQuery(query);
@@ -57,7 +60,8 @@ public class PersonRepository {
                 SoDienThoai = rs.getString(1);
                 Ten = rs.getString(2);
                 MatKhau = rs.getString(4);
-                Person p = new Person(SoDienThoai, Ten, false, MatKhau);
+                ID = rs.getInt(5);
+                Person p = new Person(SoDienThoai, Ten, false, MatKhau,ID);
                 list.add(p);
             }
         } catch (Exception e) {
@@ -67,7 +71,8 @@ public class PersonRepository {
     
     public static int addNhanVien(String SoDienThoai, String Ten, String MatKhau) {
 //        System.out.println("add NVien");
-        String query = "INSERT INTO `nhansu` (`SoDienThoai`, `Ten`, `ChucVu`, `MatKhau`) VALUES ('"+SoDienThoai+"', '"+Ten+"', b'0', '"+MatKhau+"');";
+        String query = "INSERT INTO `nhansu` (`SoDienThoai`, `Ten`, `ChucVu`, `MatKhau`, `ID`) VALUES ('"+SoDienThoai+"', '"+Ten+"', b'0', '"+MatKhau+"', NULL);";
+//        String query = "INSERT INTO `nhansu` (`SoDienThoai`, `Ten`, `ChucVu`, `MatKhau`) VALUES ('"+SoDienThoai+"', '"+Ten+"', b'0', '"+MatKhau+"');";
         try {
             Statement stmt = DatabaseConnect.getConnection().createStatement();
             int i = stmt.executeUpdate(query);
@@ -88,8 +93,9 @@ public class PersonRepository {
             if (rs != null) {
                 String Ten = rs.getString(2);
                 String MatKhau = rs.getString(4);
+                int ID = rs.getInt(5);
 //                boolean ChucVu = rs.getBoolean(3);
-                Person p = new Person(SoDienThoai, Ten, false, MatKhau);
+                Person p = new Person(SoDienThoai, Ten, false, MatKhau,ID);
                 return p;
             }
         } catch (Exception e) {
@@ -104,7 +110,8 @@ public class PersonRepository {
         } else {
             ChucVu = 1;
         }
-        String query = "UPDATE `nhansu` SET `Ten` = '"+person.getTen()+"', `ChucVu` = b'"+ChucVu+"', `MatKhau` = '"+person.getMatKhau()+"' WHERE `SoDienThoai` LIKE '"+person.getSoDienThoai()+"';";
+        String query ="UPDATE `nhansu` SET `SoDienThoai` = '"+person.getSoDienThoai()+"', `Ten` = '"+person.getTen()+"', `ChucVu` = b'"+ChucVu+"', `MatKhau` = '"+person.getMatKhau()+"' WHERE `ID` = "+person.getID()+";";
+//        String query = "UPDATE `nhansu` SET `Ten` = '"+person.getTen()+"', `ChucVu` = b'"+ChucVu+"', `MatKhau` = '"+person.getMatKhau()+"' WHERE `SoDienThoai` LIKE '"+person.getSoDienThoai()+"';";
         try {
             Statement stmt = DatabaseConnect.getConnection().createStatement();
             int i = stmt.executeUpdate(query);

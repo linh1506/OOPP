@@ -21,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 public class QuanLyNhanVienController {
     Quanlynhanvien quanlynhanvien = null;
     MenuQuanLyController menuQuanLyController = null;
+    int IDSelected;
 
     public QuanLyNhanVienController(MenuQuanLyController menuQuanLyController) {
         quanlynhanvien = new Quanlynhanvien();
@@ -53,7 +54,7 @@ public class QuanLyNhanVienController {
         DefaultTableModel model = (DefaultTableModel) quanlynhanvien.getTable_QuanLyNhanVien().getModel();
         model.setRowCount(0);
         for (Person i : list) {
-                String oblist[] = {i.getTen(),i.getSoDienThoai(),i.getMatKhau()};
+                String oblist[] = {i.getTen(),i.getSoDienThoai(),i.getMatKhau(),String.valueOf(i.getID())};
                 model.addRow(oblist);  
             }
     }
@@ -123,6 +124,11 @@ public class QuanLyNhanVienController {
                         row = target.getModel().getValueAt(target.getSelectedRow(), 2);
                         quanlynhanvien.getTxt_CapNhatNhanVien_MatKhau().setText(String.valueOf(row));
 
+                        row = target.getModel().getValueAt(target.getSelectedRow(), 3);
+                        quanlynhanvien.getTxt_ID().setText(String.valueOf(row));
+                        
+                        IDSelected = Integer.valueOf(String.valueOf(row));
+                        System.out.println(IDSelected);
                     }
                 }
             });
@@ -131,11 +137,11 @@ public class QuanLyNhanVienController {
         public void CapNhatNhanVien() {
             this.quanlynhanvien.getBtn_CapNhat().addActionListener((e) -> {
                 String SoDienThoai, Ten, MatKhau;
-                
+                int ID;
                 SoDienThoai = this.quanlynhanvien.getTxt_CapNhatNhanVienSoDienThoai().getText();
                 Ten = this.quanlynhanvien.getTxt_CapNhatNhanVienTen().getText();
                 MatKhau = this.quanlynhanvien.getTxt_CapNhatNhanVien_MatKhau().getText();
-                Person person = new Person(SoDienThoai, Ten, false, MatKhau);
+                Person person = new Person(SoDienThoai, Ten, false, MatKhau,IDSelected);
 
                 if (SoDienThoai.equals("")){
                     ThongBaoPopUp("Chưa chọn !", "Thông báo");
@@ -170,8 +176,8 @@ public class QuanLyNhanVienController {
             String bool = "true";
             String SoDienThoai = null;
             for (int i=0;i<target.getRowCount();i++) {
-                System.out.println(String.valueOf(target.getModel().getValueAt(i, 3)));
-                if (bool.equals(String.valueOf(target.getModel().getValueAt(i, 3))))
+                System.out.println(String.valueOf(target.getModel().getValueAt(i, 4)));
+                if (bool.equals(String.valueOf(target.getModel().getValueAt(i, 4))))
                 {
                     SoDienThoai = String.valueOf(target.getModel().getValueAt(i, 1));
                     list.add(SoDienThoai);
