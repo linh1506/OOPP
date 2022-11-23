@@ -141,8 +141,7 @@ public class QuanLyNhanVienController {
                 SoDienThoai = this.quanlynhanvien.getTxt_CapNhatNhanVienSoDienThoai().getText();
                 Ten = this.quanlynhanvien.getTxt_CapNhatNhanVienTen().getText();
                 MatKhau = this.quanlynhanvien.getTxt_CapNhatNhanVien_MatKhau().getText();
-                Person person = new Person(SoDienThoai, Ten, false, MatKhau,IDSelected);
-
+                
                 if (SoDienThoai.equals("")){
                     ThongBaoPopUp("Chưa chọn !", "Thông báo");
                 }
@@ -151,8 +150,9 @@ public class QuanLyNhanVienController {
                 }
                 else if (MatKhau.equals("")) {
                     ThongBaoPopUp("Mật khẩu không được để trống !", "Thông báo");
-
-                } else {
+                } 
+                else {
+                    Person person = new Person(SoDienThoai, Ten, false, MatKhau,IDSelected);
                     boolean b = PersonRepository.CapNhatNhanVien(person);
                     if (b == false) {
                         ThongBaoPopUp("Cập nhật không thành công !", "Thông báo");
