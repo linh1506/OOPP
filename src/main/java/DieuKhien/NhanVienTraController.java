@@ -67,7 +67,7 @@ public class NhanVienTraController {
     
     public void TimMaVe() {
         this.traxe.getBtn_TimKiem().addActionListener((e) -> {
-            String vePhaiTim = this.traxe.getTxt_TimMaVe().getText();
+            String vePhaiTim = this.traxe.getTxt_TimMaVe().getText().toUpperCase();
             if (vePhaiTim.startsWith("VN")) {
 //                In DS theo vé ngày
                 InDSTheoVeNgay(vePhaiTim);

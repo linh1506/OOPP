@@ -19,10 +19,14 @@ import javax.swing.table.DefaultTableModel;
  * @author admin
  */
 public class QuanLyNhanVienController {
-    Quanlynhanvien quanlynhanvien = null;
-    MenuQuanLyController menuQuanLyController = null;
+    Quanlynhanvien quanlynhanvien;
+    MenuQuanLyController menuQuanLyController;
     int IDSelected;
-
+    
+    public void SetVisible(boolean b) {
+        this.quanlynhanvien.setVisible(b);
+    }
+    
     public QuanLyNhanVienController(MenuQuanLyController menuQuanLyController) {
         quanlynhanvien = new Quanlynhanvien();
         SetVisible(true);
@@ -39,9 +43,7 @@ public class QuanLyNhanVienController {
         Thoat();
     }
     
-    public void SetVisible(boolean b) {
-        this.quanlynhanvien.setVisible(b);
-    }
+   
     
     public void Thoat() {
         this.quanlynhanvien.getBtn_exit().addActionListener((e) -> {
