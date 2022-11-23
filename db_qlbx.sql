@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 10, 2022 lúc 04:30 AM
+-- Thời gian đã tạo: Th10 15, 2022 lúc 02:23 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -76,21 +76,16 @@ CREATE TABLE `nhansu` (
   `SoDienThoai` varchar(10) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `Ten` text COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `ChucVu` bit(1) NOT NULL,
-  `MatKhau` varchar(30) COLLATE utf8mb4_vietnamese_ci NOT NULL
+  `MatKhau` varchar(30) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `nhansu`
 --
 
-INSERT INTO `nhansu` (`SoDienThoai`, `Ten`, `ChucVu`, `MatKhau`) VALUES
-('1', 'Lê Quang Duy', b'1', '1'),
-('123', 'qqqqqq', b'0', '45'),
-('123456', 'Bùi Như Lạc', b'0', '12345678'),
-('12345678', 'Nguyễn Đắc Vượng', b'1', '123456789'),
-('12345697', 'Nguyễn Thị Mộng Mơ', b'0', '123456789'),
-('16022002', 'Vũ Đức Duy', b'1', '123456789'),
-('2', 'Lê Hồng Sơn', b'0', '2');
+INSERT INTO `nhansu` (`SoDienThoai`, `Ten`, `ChucVu`, `MatKhau`, `ID`) VALUES
+('26102002', 'Lê Hồng Sơn', b'1', '123456789', 1);
 
 -- --------------------------------------------------------
 
@@ -114,7 +109,8 @@ INSERT INTO `suco` (`ThoiGianGui`, `Loai`, `MoTa`, `IsKhachDenBu`, `Cost`) VALUE
 ('2022-11-07 09:29:52', 'Hỏng xe của khách', 'Đèn pha xe máy của khách hỏng', b'0', 100000),
 ('2022-11-08 05:08:43', 'Hỏng cơ sở vật chất', 'Đèn hỏng', b'0', 0),
 ('2022-11-08 05:22:15', '123', '123', b'0', 123),
-('2022-11-08 11:38:21', 'Hỏng Cơ sở vật chất', '123', b'1', 123);
+('2022-11-08 11:38:21', 'Hỏng Cơ sở vật chất', '123', b'1', 123),
+('2022-11-11 16:04:40', 'Hỏng Cơ sở vật chất', 'Khách làm hỏng đèn', b'1', 50000);
 
 -- --------------------------------------------------------
 
@@ -133,12 +129,12 @@ CREATE TABLE `vengay` (
 --
 
 INSERT INTO `vengay` (`MaVe`, `GiaVeNgay`, `TrangThai`) VALUES
-('VN0001', 5000, 1),
+('VN0001', 5000, 0),
 ('VN0002', 5000, 1),
 ('VN0003', 5000, 0),
-('VN0004', 5000, 0),
-('VN0005', 5000, 0),
-('VN0006', 5000, 0),
+('VN0004', 5000, 1),
+('VN0005', 5000, 1),
+('VN0006', 5000, 1),
 ('VN0007', 5000, 0),
 ('VN0008', 5000, 0),
 ('VN1001', 20000, 0),
@@ -171,11 +167,22 @@ CREATE TABLE `vengaygui` (
 --
 
 INSERT INTO `vengaygui` (`ThoiGianGui`, `IDChoDe`, `IDVe`, `BienSoXe`, `ThoiGianTra`, `Gia`) VALUES
-('2022-11-09 03:26:28', '01', 'VN0001', '29A91234', '2022-11-09 09:50:53', 3000),
-('2022-11-09 03:50:27', '01', 'VN0002', '30A19999', '2022-11-09 09:50:53', 3000),
-('2022-11-09 03:50:53', '01', 'VN0003', '30A86996', '2022-11-10 09:50:53', 3000),
-('2022-11-10 09:22:33', '01', 'VN0001', 'LHS2610', NULL, 3000),
-('2022-11-10 09:43:43', '01', 'VN0002', 'LHS261002', NULL, 3000);
+('2022-10-31 09:22:33', '01', 'VN0001', 'LHS2610', '2022-11-10 22:19:56', 33000),
+('2022-11-10 22:30:12', '01', 'VN0001', 'NDV123', '2022-11-10 22:30:34', 3000),
+('2022-11-10 22:30:16', '01', 'VN0002', 'NDV1234', '2022-11-10 22:30:39', 3000),
+('2022-11-10 22:31:17', '01', 'VN0001', 'NDV123', '2022-11-10 22:31:33', 3000),
+('2022-11-10 22:31:19', '01', 'VN0002', 'NDV123', '2022-11-11 11:02:12', 3000),
+('2022-11-10 22:31:22', '01', 'VN0003', 'NDV123', '2022-11-11 11:05:53', 3000),
+('2022-11-11 11:04:15', '01', 'VN0001', 'NDV1111', '2022-11-11 14:52:52', 3000),
+('2022-11-11 11:55:18', '01', 'VN0002', 'LHS100', '2022-11-11 11:55:53', 3000),
+('2022-11-11 14:43:43', '01', 'VN0003', 'SUS6969', '2022-11-11 16:03:27', 3000),
+('2022-11-11 14:46:39', '02', 'VN1001', 'SUS9696', '2022-11-11 16:03:06', 20000),
+('2022-11-11 14:46:49', '02', 'VN1002', 'AP1156', '2022-11-11 14:50:07', 20000),
+('2022-11-11 14:47:04', '02', 'VN1003', 'AP1156', '2022-11-11 14:48:56', 20000),
+('2022-11-11 14:51:08', '01', 'VN0002', 'KTHT6789', NULL, 3000),
+('2022-11-11 14:51:39', '01', 'VN0004', 'SUSSY-5423', NULL, 3000),
+('2022-11-11 14:51:54', '01', 'VN0005', 'LMAO001', NULL, 3000),
+('2022-11-11 14:52:12', '01', 'VN0006', 'CNY-37', NULL, 3000);
 
 -- --------------------------------------------------------
 
@@ -194,8 +201,8 @@ CREATE TABLE `vethang` (
 --
 
 INSERT INTO `vethang` (`MaVe`, `GiaVeThang`, `TrangThai`) VALUES
-('VT0001', 80000, 1),
-('VT0002', 80000, 0),
+('VT0001', 80000, 0),
+('VT0002', 80000, 1),
 ('VT0003', 80000, 0),
 ('VT0004', 80000, 0),
 ('VT0005', 80000, 0),
@@ -206,7 +213,7 @@ INSERT INTO `vethang` (`MaVe`, `GiaVeThang`, `TrangThai`) VALUES
 ('VT0010', 80000, 0),
 ('VT1001', 580000, 1),
 ('VT1002', 580000, 0),
-('VT1003', 580000, 0),
+('VT1003', 580000, 1),
 ('VT1004', 580000, 0),
 ('VT1005', 580000, 0),
 ('VT1006', 580000, 0),
@@ -232,9 +239,15 @@ CREATE TABLE `vethanggui` (
 --
 
 INSERT INTO `vethanggui` (`ThoiGianGui`, `IDChoDe`, `IDVe`, `BienSoXe`, `ThoiGianTra`) VALUES
-('2022-11-10 03:35:48', '01', 'VT0001', '30A19999', '2022-11-10 09:43:05'),
-('2022-11-10 09:49:27', '02', 'VT1001', 'VDD160202', NULL),
-('2022-11-10 09:51:02', '01', 'VT0001', 'TTD8608', NULL);
+('2022-11-10 03:35:48', '01', 'VT0001', '30A19999', '2022-11-10 21:41:46'),
+('2022-11-10 09:49:27', '02', 'VT1001', 'VDD160202', '2022-11-11 09:21:36'),
+('2022-11-10 09:51:02', '01', 'VT0001', 'TTD8608', '2022-11-11 16:04:04'),
+('2022-11-10 20:57:57', '01', 'VT0002', 'LHS9999', '2022-11-11 09:21:45'),
+('2022-11-10 20:58:12', '01', 'VT0003', 'LHS1234', '2022-11-11 11:02:12'),
+('2022-11-10 20:58:39', '02', 'VT1002', 'VDD1234', '2022-11-11 16:03:50'),
+('2022-11-10 20:59:15', '02', 'VT1003', 'NDV6699', NULL),
+('2022-11-11 11:04:43', '02', 'VT1001', 'NDV261', NULL),
+('2022-11-11 11:05:01', '01', 'VT0002', 'NDV12', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -264,7 +277,7 @@ ALTER TABLE `khachhang`
 -- Chỉ mục cho bảng `nhansu`
 --
 ALTER TABLE `nhansu`
-  ADD PRIMARY KEY (`SoDienThoai`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Chỉ mục cho bảng `suco`
@@ -299,6 +312,16 @@ ALTER TABLE `vethanggui`
   ADD PRIMARY KEY (`ThoiGianGui`,`IDChoDe`,`IDVe`),
   ADD KEY `KhoaNgoai_IDChoDeXeThang` (`IDChoDe`),
   ADD KEY `KhoaNgoai_IDGuiVeThang` (`IDVe`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `nhansu`
+--
+ALTER TABLE `nhansu`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
