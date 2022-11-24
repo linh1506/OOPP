@@ -35,6 +35,15 @@ public class NhanXeController {
         IsVeNgay();
         IsXeMay();
         XacNhanNhanXe();
+        DisplayIDVeThangTXT(false);
+    }
+    
+    public void DisplayIDVeThangTXT(boolean b) {
+        this.nhanxe.getTxt_idve().setVisible(b);
+    }
+    
+    public void DisplayIDVeCombobox(boolean b) {
+        this.nhanxe.getCombobox_MaVe().setVisible(b);
     }
     
     public void IsVeNgay() {
@@ -48,10 +57,11 @@ public class NhanXeController {
         this.nhanxe.getBtn_NhanXe().addActionListener((e) -> {
             String IDChoDe =  ((this.nhanxe.getCombobox_LoaiXe().getSelectedItem().toString().equals("Xe máy")) ? "01" : "02");
             String BienSoXe = this.nhanxe.getTxt_BienSoXe().getText();
-            String IDVe = this.nhanxe.getCombobox_MaVe().getSelectedItem().toString();
+            
             LocalDateTime ThoiGianGui = LocalDateTime.now();
 
             if (this.nhanxe.getCombobox_LoaiVe().getSelectedItem().toString().equals("Vé ngày")) {
+                String IDVe = this.nhanxe.getCombobox_MaVe().getSelectedItem().toString();
                 int Gia = (IDChoDe.equals("01") ? 3000 : 20000);
                 VeNgayGui veNgayGui = new VeNgayGui(ThoiGianGui, IDChoDe, IDVe, BienSoXe, null, Gia);
                 int isSuccess = VeNgayGuiRepository.NhanXe(veNgayGui);
@@ -64,6 +74,7 @@ public class NhanXeController {
                 }
             }
             else {
+                String IDVe = this.nhanxe.getTxt_idve().getText().toUpperCase();
                 VeThangGui veThangGui = new VeThangGui(ThoiGianGui, IDChoDe, IDVe, BienSoXe, null);
                 int isSuccess = VeThangGuiRepository.NhanXe(veThangGui);
                 int isSuccess2 = VeThangRepository.SetStatusTicketByID(IDVe, 1);
@@ -113,11 +124,13 @@ public class NhanXeController {
     
     public void IsSelected() {
         if (this.nhanxe.getCombobox_LoaiVe().getSelectedItem().toString().equals("Vé ngày")) {
+                DisplayIDVeCombobox(true);
+                DisplayIDVeThangTXT(false);
                 if (this.nhanxe.getCombobox_LoaiXe().getSelectedItem().toString().equals("Xe máy")) {
                     //Vé ngày xe máy
                     ArrayList<VeNgay> list = VeNgayRepository.getListVeNgay(5000);
                     addItemMaVeNgayInCombobox(list);
-            }
+                }
                 else {
 //                    Vé ngày oto
                     ArrayList<VeNgay> list = VeNgayRepository.getListVeNgay(20000);
@@ -125,16 +138,18 @@ public class NhanXeController {
                 }
             }
             else {
-                if (this.nhanxe.getCombobox_LoaiXe().getSelectedItem().toString().equals("Xe máy")) {
-//                  Vé tháng xe máy
-                    ArrayList<VeThang> list = VeThangRepository.getListVeThang(80000);
-                    addItemMaVeThangInCombobox(list);
-                }
-                else {
-//                    Vé tháng oto
-                    ArrayList<VeThang> list = VeThangRepository.getListVeThang(580000);
-                    addItemMaVeThangInCombobox(list);
-                }
+//                if (this.nhanxe.getCombobox_LoaiXe().getSelectedItem().toString().equals("Xe máy")) {
+////                  Vé tháng xe máy
+//                    ArrayList<VeThang> list = VeThangRepository.getListVeThang(80000);
+//                    addItemMaVeThangInCombobox(list);
+//                }
+//                else {
+////                    Vé tháng oto
+//                    ArrayList<VeThang> list = VeThangRepository.getListVeThang(580000);
+//                    addItemMaVeThangInCombobox(list);
+//                }
+                DisplayIDVeThangTXT(true);
+                DisplayIDVeCombobox(false);
             }
     }
 }
