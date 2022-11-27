@@ -33,8 +33,15 @@ public class MenuNhanVienController implements MenuInterface{
         InSLXeMay();
         InSLOto();
         NhanVienXuatXe();
+        QuanLyVeThang();
     }
-        
+    
+    public void QuanLyVeThang() {
+        this.menunhanvien.getBtn_QuanLyVeThang().addActionListener((e) -> {
+            QuanLyVeThangController quanLyVeThangController = new QuanLyVeThangController(this);
+        });
+    }
+    
     public void NhanVienXuatXe() {
         this.menunhanvien.getBtn_NhanVienXuatXe().addActionListener((e) -> {
             NhanVienTraController nhanVienTraController = new NhanVienTraController(this);

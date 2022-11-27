@@ -41,4 +41,25 @@ public class DangKyVeThangRepository {
         }
         return list;
     }
+    
+    public static int DangKyVeThang(DangKyVeThang a) {
+        String query = "INSERT INTO `dangkyvethang` (`ID`, `TenKhach`, `SoDienThoai`, `ThoiGianDangKy`, `ThoiGianKetThuc`, `IDVeThang`, `BienSoXe`) VALUES "
+                + "(NULL, '"
+                +a.getTenKhach()+"', '"
+                +a.getSoDienThoai()+"', '"
+                +a.getThoiGianDangKy()+"', '"
+                +a.getThoiGianKetThuc()+"', '"
+                +a.getIDVeThang()+"', '"
+                +a.getBienSoXe()+"');";
+        try {
+            Statement stmt = DatabaseConnect.getConnection().createStatement();
+            int i = stmt.executeUpdate(query);
+            if (i > 0) 
+                return 1;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
+            }
+        return 1;
+    }
 }
