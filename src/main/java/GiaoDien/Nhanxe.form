@@ -28,7 +28,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -55,32 +55,40 @@
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Component id="jSeparator1" min="-2" pref="683" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Component id="btn_NhanXe" min="-2" pref="111" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                          <Component id="label_IDVeNgay" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel2" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
-                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="label_loaixe" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label_BienSoXeVeNgay" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                   </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="label_IDVeThang" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="combobox_LoaiVe" min="-2" pref="98" max="-2" attributes="0"/>
-                                  <Component id="combobox_LoaiXe" min="-2" pref="97" max="-2" attributes="0"/>
-                                  <Component id="combobox_MaVe" alignment="0" pref="192" max="32767" attributes="0"/>
-                                  <Component id="txt_idve" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txt_BienSoXe" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="label_BienSoXeVeThang" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txt_idve" pref="192" max="32767" attributes="0"/>
+                              <Component id="combobox_LoaiXe" alignment="0" max="32767" attributes="0"/>
+                              <Component id="combobox_LoaiVe" alignment="0" max="32767" attributes="0"/>
+                              <Component id="combobox_MaVe" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txt_BienSoXe" alignment="0" pref="192" max="32767" attributes="0"/>
+                              <Component id="btn_NhanXe" alignment="1" min="-2" pref="111" max="-2" attributes="0"/>
+                              <Component id="label_displaybiensoxethang" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -105,24 +113,32 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="label_loaixe" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="combobox_LoaiXe" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="label_IDVeNgay" min="-2" max="-2" attributes="0"/>
+                      <Component id="combobox_MaVe" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_idve" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="label_IDVeThang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="label_BienSoXeVeNgay" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txt_BienSoXe" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="combobox_MaVe" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="label_BienSoXeVeThang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="label_displaybiensoxethang" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txt_idve" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace pref="35" max="32767" attributes="0"/>
                   <Component id="btn_NhanXe" min="-2" pref="43" max="-2" attributes="0"/>
-                  <EmptySpace pref="21" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -176,7 +192,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="label_loaixe">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -197,7 +213,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="label_BienSoXeVeNgay">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -213,7 +229,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_BienSoXeActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="label_IDVeNgay">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -243,6 +259,21 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_idveActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="label_IDVeThang">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="M&#xe3; v&#xe9;:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="label_BienSoXeVeThang">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Bi&#x1ec3;n s&#x1ed1; xe: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="label_displaybiensoxethang">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Bi&#x1ec3;n s&#x1ed1; xe v&#xe9; th&#xe1;ng"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

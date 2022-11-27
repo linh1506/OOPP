@@ -4,11 +4,13 @@
  */
 package DieuKhien;
 
+import Entity.DangKyVeThang;
 import Entity.VeNgay;
 import Entity.VeNgayGui;
 import Entity.VeThang;
 import Entity.VeThangGui;
 import GiaoDien.Nhanxe;
+import Repository.DangKyVeThangRepository;
 import Repository.VeNgayGuiRepository;
 import Repository.VeNgayRepository;
 import Repository.VeThangGuiRepository;
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 public class NhanXeController {
     private Nhanxe nhanxe = null;
     private MenuNhanVienController menuNhanVienController;
+    private DangKyVeThang vethang = null;
 
     public NhanXeController(MenuNhanVienController menuNhanVienController) {
         this.menuNhanVienController = menuNhanVienController;
@@ -36,6 +39,41 @@ public class NhanXeController {
         IsXeMay();
         XacNhanNhanXe();
         DisplayIDVeThangTXT(false);
+        getTxtIDVe();
+    }
+
+    public DangKyVeThang getVethang() {
+        return vethang;
+    }
+
+    public void setVethang(DangKyVeThang vethang) {
+        this.vethang = vethang;
+    }
+
+    
+    
+    public void DisplayLabelBienSoXeThangGetDB(boolean b){
+        this.nhanxe.getLabel_displaybiensoxethang().setVisible(b);
+    }
+    
+    public void DisplayTXT_BienSoXe(boolean b) {
+        this.nhanxe.getTxt_BienSoXe().setVisible(b);
+    }
+    
+    public void DisplayLabelIDVeNgay(boolean  b) {
+        this.nhanxe.getLabel_IDVeNgay().setVisible(b);
+    }
+    
+    public void DisplayLabelIDVeThang(boolean  b) {
+        this.nhanxe.getLabel_IDVeThang().setVisible(b);
+    }
+    
+    public void DisplayLabelBienSoXeVeNgay(boolean  b) {
+        this.nhanxe.getLabel_BienSoXeVeNgay().setVisible(b);
+    }
+    
+    public void DisplayLabelBienSoXeVeThang(boolean  b) {
+        this.nhanxe.getLabel_BienSoXeVeThang().setVisible(b);
     }
     
     public void DisplayIDVeThangTXT(boolean b) {
@@ -44,6 +82,14 @@ public class NhanXeController {
     
     public void DisplayIDVeCombobox(boolean b) {
         this.nhanxe.getCombobox_MaVe().setVisible(b);
+    }
+    
+    public void DisplayLabelLoaiXe(boolean b) {
+        this.nhanxe.getLabel_loaixe().setVisible(b);
+    }
+    
+    public void DisplayBoxLoaiXe(boolean b) {
+        this.nhanxe.getCombobox_LoaiXe().setVisible(b);
     }
     
     public void IsVeNgay() {
@@ -74,12 +120,13 @@ public class NhanXeController {
                 }
             }
             else {
-                String IDVe = this.nhanxe.getTxt_idve().getText().toUpperCase();
-                VeThangGui veThangGui = new VeThangGui(ThoiGianGui, IDChoDe, IDVe, BienSoXe, null);
+//                String IDVe = this.nhanxe.getTxt_idve().getText().toUpperCase();
+                VeThangGui veThangGui = new VeThangGui(ThoiGianGui, IDChoDe, getVethang().getIDVeThang(), getVethang().getBienSoXe(), null);
                 int isSuccess = VeThangGuiRepository.NhanXe(veThangGui);
-                int isSuccess2 = VeThangRepository.SetStatusTicketByID(IDVe, 1);
+                int isSuccess2 = VeThangRepository.SetStatusTicketByID(getVethang().getIDVeThang(), 1);
                 if (isSuccess == 1 && isSuccess2 ==1) {
                     System.out.println("Nhan xe thanh cong");
+                    setVethang(null);
                 }
                 else {
                     System.out.println("Nhan xe loi");
@@ -122,10 +169,47 @@ public class NhanXeController {
 
     }
     
+    public void getTxtIDVe() {
+        this.nhanxe.getTxt_idve().addActionListener((e) -> {
+            String IDVe = this.nhanxe.getTxt_idve().getText().toUpperCase();
+            boolean DaDuyetXongListVeThang = false;
+            System.out.println(IDVe);
+            ArrayList<DangKyVeThang> list = DangKyVeThangRepository.getVeThangByID(IDVe);
+            if (list.size() == 0) {
+                System.out.println("Danh sach rong");
+            }
+            else
+            {
+                LocalDateTime now = LocalDateTime.now();
+                for (DangKyVeThang a : list) {
+                    if (a.getThoiGianDangKy().isBefore(now) && a.getThoiGianKetThuc().isAfter(now))
+                    {
+                        setVethang(a);
+                        this.nhanxe.getLabel_displaybiensoxethang().setText(a.getBienSoXe());
+                        DaDuyetXongListVeThang = true;
+                        break;
+                    }
+                }
+                if (DaDuyetXongListVeThang == false) {
+                    this.nhanxe.getLabel_displaybiensoxethang().setText("Ve thang da het han");
+                }
+            }
+            
+        });
+    }
+    
     public void IsSelected() {
         if (this.nhanxe.getCombobox_LoaiVe().getSelectedItem().toString().equals("Vé ngày")) {
                 DisplayIDVeCombobox(true);
                 DisplayIDVeThangTXT(false);
+                DisplayLabelIDVeNgay(true);
+                DisplayLabelIDVeThang(false);
+                DisplayLabelBienSoXeVeNgay(true);
+                DisplayLabelBienSoXeVeThang(false);
+                DisplayLabelBienSoXeThangGetDB(false);
+                DisplayTXT_BienSoXe(true);
+                DisplayBoxLoaiXe(true);
+                DisplayLabelLoaiXe(true);
                 if (this.nhanxe.getCombobox_LoaiXe().getSelectedItem().toString().equals("Xe máy")) {
                     //Vé ngày xe máy
                     ArrayList<VeNgay> list = VeNgayRepository.getListVeNgay(5000);
@@ -150,7 +234,17 @@ public class NhanXeController {
 //                }
                 DisplayIDVeThangTXT(true);
                 DisplayIDVeCombobox(false);
-            }
+                DisplayLabelIDVeNgay(false);
+                DisplayLabelIDVeThang(true);
+                DisplayLabelBienSoXeVeNgay(false);
+                DisplayLabelBienSoXeVeThang(true);
+                DisplayTXT_BienSoXe(false);
+                DisplayLabelBienSoXeThangGetDB(true);
+                DisplayBoxLoaiXe(false);
+                DisplayLabelLoaiXe(false);
+
+    
+        }
     }
 }
     

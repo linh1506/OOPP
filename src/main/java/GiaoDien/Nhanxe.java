@@ -2,6 +2,7 @@ package GiaoDien;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /*
@@ -14,6 +15,54 @@ public class Nhanxe extends javax.swing.JFrame {
     public Nhanxe() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+
+    public JLabel getLabel_loaixe() {
+        return label_loaixe;
+    }
+
+    public void setLabel_loaixe(JLabel label_loaixe) {
+        this.label_loaixe = label_loaixe;
+    }
+
+    public JLabel getLabel_displaybiensoxethang() {
+        return label_displaybiensoxethang;
+    }
+
+    public void setLabel_displaybiensoxethang(JLabel label_displaybiensoxethang) {
+        this.label_displaybiensoxethang = label_displaybiensoxethang;
+    }
+
+    public JLabel getLabel_BienSoXeVeNgay() {
+        return label_BienSoXeVeNgay;
+    }
+
+    public void setLabel_BienSoXeVeNgay(JLabel label_BienSoXeVeNgay) {
+        this.label_BienSoXeVeNgay = label_BienSoXeVeNgay;
+    }
+
+    public JLabel getLabel_BienSoXeVeThang() {
+        return label_BienSoXeVeThang;
+    }
+
+    public void setLabel_BienSoXeVeThang(JLabel label_BienSoXeVeThang) {
+        this.label_BienSoXeVeThang = label_BienSoXeVeThang;
+    }
+
+    public JLabel getLabel_IDVeNgay() {
+        return label_IDVeNgay;
+    }
+
+    public void setLabel_IDVeNgay(JLabel label_IDVeNgay) {
+        this.label_IDVeNgay = label_IDVeNgay;
+    }
+
+    public JLabel getLabel_IDVeThang() {
+        return label_IDVeThang;
+    }
+
+    public void setLabel_IDVeThang(JLabel label_IDVeThang) {
+        this.label_IDVeThang = label_IDVeThang;
     }
 
     public JButton getBtn_NhanXe() {
@@ -87,14 +136,17 @@ public class Nhanxe extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         combobox_LoaiVe = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
+        label_loaixe = new javax.swing.JLabel();
         combobox_LoaiXe = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
+        label_BienSoXeVeNgay = new javax.swing.JLabel();
         txt_BienSoXe = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        label_IDVeNgay = new javax.swing.JLabel();
         btn_NhanXe = new javax.swing.JButton();
         combobox_MaVe = new javax.swing.JComboBox<>();
         txt_idve = new javax.swing.JTextField();
+        label_IDVeThang = new javax.swing.JLabel();
+        label_BienSoXeVeThang = new javax.swing.JLabel();
+        label_displaybiensoxethang = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,15 +171,15 @@ public class Nhanxe extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Loại xe:");
+        label_loaixe.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_loaixe.setForeground(new java.awt.Color(255, 255, 255));
+        label_loaixe.setText("Loại xe:");
 
         combobox_LoaiXe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Xe máy", "Oto" }));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Biến số xe:");
+        label_BienSoXeVeNgay.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_BienSoXeVeNgay.setForeground(new java.awt.Color(255, 255, 255));
+        label_BienSoXeVeNgay.setText("Biến số xe:");
 
         txt_BienSoXe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,9 +187,9 @@ public class Nhanxe extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Mã vé:");
+        label_IDVeNgay.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_IDVeNgay.setForeground(new java.awt.Color(255, 255, 255));
+        label_IDVeNgay.setText("Mã vé:");
 
         btn_NhanXe.setText("Nhận xe");
 
@@ -148,6 +200,12 @@ public class Nhanxe extends javax.swing.JFrame {
                 txt_idveActionPerformed(evt);
             }
         });
+
+        label_IDVeThang.setText("Mã vé:");
+
+        label_BienSoXeVeThang.setText("Biển số xe: ");
+
+        label_displaybiensoxethang.setText("Biển số xe vé tháng");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -163,27 +221,33 @@ public class Nhanxe extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btn_NhanXe, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(22, 22, 22)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel5)
+                                        .addComponent(label_IDVeNgay)
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel3))
+                                        .addComponent(label_loaixe))
                                     .addGap(27, 27, 27))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(jLabel4)
-                                    .addGap(18, 18, 18)))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(combobox_LoaiVe, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(combobox_LoaiXe, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(combobox_MaVe, 0, 192, Short.MAX_VALUE)
-                                .addComponent(txt_idve)
-                                .addComponent(txt_BienSoXe)))))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(label_BienSoXeVeNgay)
+                                    .addGap(18, 18, 18))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(label_IDVeThang)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(label_BienSoXeVeThang)
+                                .addGap(25, 25, 25)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_idve, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                            .addComponent(combobox_LoaiXe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(combobox_LoaiVe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(combobox_MaVe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_BienSoXe, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                            .addComponent(btn_NhanXe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label_displaybiensoxethang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -201,21 +265,27 @@ public class Nhanxe extends javax.swing.JFrame {
                     .addComponent(combobox_LoaiVe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(label_loaixe)
                     .addComponent(combobox_LoaiXe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(label_IDVeNgay)
+                    .addComponent(combobox_MaVe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(txt_idve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_IDVeThang))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_BienSoXeVeNgay)
                     .addComponent(txt_BienSoXe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(combobox_MaVe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_idve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                    .addComponent(label_BienSoXeVeThang)
+                    .addComponent(label_displaybiensoxethang))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(btn_NhanXe, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -226,7 +296,7 @@ public class Nhanxe extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -257,11 +327,14 @@ public class Nhanxe extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> combobox_MaVe;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel label_BienSoXeVeNgay;
+    private javax.swing.JLabel label_BienSoXeVeThang;
+    private javax.swing.JLabel label_IDVeNgay;
+    private javax.swing.JLabel label_IDVeThang;
+    private javax.swing.JLabel label_displaybiensoxethang;
+    private javax.swing.JLabel label_loaixe;
     private javax.swing.JTextField txt_BienSoXe;
     private javax.swing.JTextField txt_idve;
     // End of variables declaration//GEN-END:variables
