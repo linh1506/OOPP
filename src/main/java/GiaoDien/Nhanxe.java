@@ -17,6 +17,14 @@ public class Nhanxe extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
+    public JLabel getLabel_ThongBaoNhanXe() {
+        return label_ThongBaoNhanXe;
+    }
+
+    public void setLabel_ThongBaoNhanXe(JLabel label_ThongBaoNhanXe) {
+        this.label_ThongBaoNhanXe = label_ThongBaoNhanXe;
+    }
+
     public JLabel getLabel_loaixe() {
         return label_loaixe;
     }
@@ -147,6 +155,7 @@ public class Nhanxe extends javax.swing.JFrame {
         label_IDVeThang = new javax.swing.JLabel();
         label_BienSoXeVeThang = new javax.swing.JLabel();
         label_displaybiensoxethang = new javax.swing.JLabel();
+        label_ThongBaoNhanXe = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -207,6 +216,8 @@ public class Nhanxe extends javax.swing.JFrame {
 
         label_displaybiensoxethang.setText("Biển số xe vé tháng");
 
+        label_ThongBaoNhanXe.setText(".");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -241,13 +252,15 @@ public class Nhanxe extends javax.swing.JFrame {
                                 .addComponent(label_BienSoXeVeThang)
                                 .addGap(25, 25, 25)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_idve, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-                            .addComponent(combobox_LoaiXe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(combobox_LoaiVe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(combobox_MaVe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_BienSoXe, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
                             .addComponent(btn_NhanXe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label_displaybiensoxethang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(label_displaybiensoxethang, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                            .addComponent(label_ThongBaoNhanXe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txt_BienSoXe, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txt_idve, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(combobox_MaVe, javax.swing.GroupLayout.Alignment.LEADING, 0, 134, Short.MAX_VALUE)
+                                .addComponent(combobox_LoaiXe, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(combobox_LoaiVe, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -283,7 +296,9 @@ public class Nhanxe extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_BienSoXeVeThang)
                     .addComponent(label_displaybiensoxethang))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label_ThongBaoNhanXe)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(btn_NhanXe, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -333,6 +348,7 @@ public class Nhanxe extends javax.swing.JFrame {
     private javax.swing.JLabel label_BienSoXeVeThang;
     private javax.swing.JLabel label_IDVeNgay;
     private javax.swing.JLabel label_IDVeThang;
+    private javax.swing.JLabel label_ThongBaoNhanXe;
     private javax.swing.JLabel label_displaybiensoxethang;
     private javax.swing.JLabel label_loaixe;
     private javax.swing.JTextField txt_BienSoXe;

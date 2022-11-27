@@ -114,6 +114,7 @@ public class NhanXeController {
                 int isSuccess2 = VeNgayRepository.SetStatusTicketByID(IDVe, 1);
                 if (isSuccess == 1 && isSuccess2 ==1) {
                     System.out.println("Nhan xe thanh cong");
+                    this.nhanxe.getLabel_ThongBaoNhanXe().setText("Nhận xe thành công!");
                 }
                 else {
                     System.out.println("Nhan xe loi");
@@ -121,16 +122,21 @@ public class NhanXeController {
             }
             else {
 //                String IDVe = this.nhanxe.getTxt_idve().getText().toUpperCase();
-                VeThangGui veThangGui = new VeThangGui(ThoiGianGui, IDChoDe, getVethang().getIDVeThang(), getVethang().getBienSoXe(), null);
-                int isSuccess = VeThangGuiRepository.NhanXe(veThangGui);
-                int isSuccess2 = VeThangRepository.SetStatusTicketByID(getVethang().getIDVeThang(), 1);
-                if (isSuccess == 1 && isSuccess2 ==1) {
-                    System.out.println("Nhan xe thanh cong");
-                    setVethang(null);
+                XuLyLayVeThang();
+                if (getVethang() != null) {
+                    VeThangGui veThangGui = new VeThangGui(ThoiGianGui, IDChoDe, getVethang().getIDVeThang(), getVethang().getBienSoXe(), null);
+                    int isSuccess = VeThangGuiRepository.NhanXe(veThangGui);
+                    int isSuccess2 = VeThangRepository.SetStatusTicketByID(getVethang().getIDVeThang(), 1);
+                    if (isSuccess == 1 && isSuccess2 ==1) {
+                        System.out.println("Nhan xe thanh cong");
+                        this.nhanxe.getLabel_ThongBaoNhanXe().setText("Nhận xe thành công!");
+                        setVethang(null);
+                    }
+                    else {
+                        System.out.println("Nhan xe loi");
+                    }
                 }
-                else {
-                    System.out.println("Nhan xe loi");
-                }
+                
             }
             IsSelected();
         });
@@ -171,7 +177,13 @@ public class NhanXeController {
     
     public void getTxtIDVe() {
         this.nhanxe.getTxt_idve().addActionListener((e) -> {
-            String IDVe = this.nhanxe.getTxt_idve().getText().toUpperCase();
+            XuLyLayVeThang();
+            
+        });
+    }
+    
+    public void XuLyLayVeThang() {
+        String IDVe = this.nhanxe.getTxt_idve().getText().toUpperCase();
             boolean DaDuyetXongListVeThang = false;
             System.out.println(IDVe);
             ArrayList<DangKyVeThang> list = DangKyVeThangRepository.getVeThangByID(IDVe);
@@ -194,8 +206,6 @@ public class NhanXeController {
                     this.nhanxe.getLabel_displaybiensoxethang().setText("Ve thang da het han");
                 }
             }
-            
-        });
     }
     
     public void IsSelected() {

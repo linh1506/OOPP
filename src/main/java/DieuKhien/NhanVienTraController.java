@@ -133,6 +133,8 @@ public class NhanVienTraController {
                             int soNgayGui = (int) getVeNgayGui().getThoiGianGui().until(thoiGianTra, ChronoUnit.DAYS);
                             int ThanhTien = (soNgayGui+1) *getVeNgayGui().getGia();
                             traxe.getLabel_MaVe().setText(getVeNgayGui().getIDVe());
+                            traxe.getLabel_BienSoXe().setText(getVeNgayGui().getBienSoXe());
+                            traxe.getLabel_ThoiGianGui().setText(getVeNgayGui().getThoiGianGui().toString());
                             traxe.getLabel_ThanhTien().setText(String.valueOf(ThanhTien) + " đồng");    
                             XacNhanTraXe(0);
                         }
@@ -145,6 +147,8 @@ public class NhanVienTraController {
                             System.out.println(veThangGui.getIDVe());
                             
                             traxe.getLabel_MaVe().setText(getVeThangGui().getIDVe());
+                            traxe.getLabel_BienSoXe().setText(getVeThangGui().getBienSoXe());
+                            traxe.getLabel_ThoiGianGui().setText(getVeThangGui().getThoiGianGui().toString());
                             traxe.getLabel_ThanhTien().setText("0 đồng");
                             XacNhanTraXe(1);
                         }

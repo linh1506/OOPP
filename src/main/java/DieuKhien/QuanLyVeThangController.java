@@ -44,12 +44,27 @@ public class QuanLyVeThangController {
             String SoDienThoai = this.quanlyvethang.getTxt_SoDienThoai().getText();
             String IDVeThang = this.quanlyvethang.getTxt_MaVe().getText().toUpperCase();
             String BienSoXe = this.quanlyvethang.getTxt_BienSoXe().getText();
-            LocalDateTime now = LocalDateTime.now();
-            LocalDateTime date = now.plusMonths(1);
-            DangKyVeThang a = new DangKyVeThang(0, TenKhach, SoDienThoai, now, date, IDVeThang, BienSoXe);
-            int i = DangKyVeThangRepository.DangKyVeThang(a);
-            if (i == 1) {
-                System.out.println("Dang ky the thang thanh cong");
+            if (TenKhach.equals("")) {
+                this.quanlyvethang.getLabel_ThongBaoDangKy().setText("Tên không được để trống!");
+            }
+            else if (SoDienThoai.equals("")) {
+                 this.quanlyvethang.getLabel_ThongBaoDangKy().setText("Số điện thoại không được để trống!");
+            }
+            else if (IDVeThang.equals("")) {
+                this.quanlyvethang.getLabel_ThongBaoDangKy().setText("ID vé tháng không được để trống!");
+            }
+            else if (BienSoXe.equals("")) {
+                this.quanlyvethang.getLabel_ThongBaoDangKy().setText("Biển số xe không được để trống!");
+            }
+            else {
+                LocalDateTime now = LocalDateTime.now();
+                LocalDateTime date = now.plusMonths(1);
+                DangKyVeThang a = new DangKyVeThang(0, TenKhach, SoDienThoai, now, date, IDVeThang, BienSoXe);
+                int i = DangKyVeThangRepository.DangKyVeThang(a);
+                if (i == 1) {
+                    System.out.println("Dang ky the thang thanh cong");
+                    this.quanlyvethang.getLabel_ThongBaoDangKy().setText("Đăng ký thành công");
+                }
             }
         });
     }
@@ -57,13 +72,20 @@ public class QuanLyVeThangController {
     public void TimKiemVeThang() {
         this.quanlyvethang.getBtn_Tim().addActionListener((e) -> {
             String IDVeThang = this.quanlyvethang.getTxt_Tim().getText().toUpperCase();
-            ArrayList<DangKyVeThang> list = DangKyVeThangRepository.getVeThangByID(IDVeThang);
-            LocalDateTime now = LocalDateTime.now();
-            for (DangKyVeThang a:list) {
-                if (a.getThoiGianDangKy().isBefore(now) && a.getThoiGianKetThuc().isAfter(now)) {
-                    setDangKyVeThang(a);
-                    this.quanlyvethang.getLabel_ThongBao().setText("Tìm thành công!"+a.getTenKhach());
-                    break;
+            if (!IDVeThang.equals("")) {
+                ArrayList<DangKyVeThang> list = DangKyVeThangRepository.getVeThangByID(IDVeThang);
+                LocalDateTime now = LocalDateTime.now();
+                boolean DaDuyetHetDanhSach = false;
+                for (DangKyVeThang a:list) {
+                    if (a.getThoiGianDangKy().isBefore(now) && a.getThoiGianKetThuc().isAfter(now)) {
+                        setDangKyVeThang(a);
+                        this.quanlyvethang.getLabel_ThongBao().setText("Tìm thành công! "+a.getTenKhach());
+                        DaDuyetHetDanhSach = true;
+                        break;
+                    }
+                }
+                if (DaDuyetHetDanhSach == false) {
+                    this.quanlyvethang.getLabel_ThongBao().setText("Không tìm thấy!");
                 }
             }
         
@@ -72,15 +94,23 @@ public class QuanLyVeThangController {
     
     public void GiaHanVeThang() {
         this.quanlyvethang.getBtn_Add().addActionListener((e) -> {
-            LocalDateTime a = getDangKyVeThang().getThoiGianKetThuc();
-            getDangKyVeThang().setThoiGianDangKy(a);
-            a.plusMonths(1);
-            getDangKyVeThang().setThoiGianKetThuc(a);
-            int i = DangKyVeThangRepository.DangKyVeThang(getDangKyVeThang());
-            if (i == 1) {
-                this.quanlyvethang.getLabel_ThongBao().setText("Gia hạn vé tháng thành công!");
+            if (getDangKyVeThang() != null) {
+                LocalDateTime a = getDangKyVeThang().getThoiGianKetThuc();
+                System.out.println(a);
+                getDangKyVeThang().setThoiGianDangKy(a);
+                a = a.plusMonths(1);
+                System.out.println(a);
+                getDangKyVeThang().setThoiGianKetThuc(a);
+                int i = DangKyVeThangRepository.DangKyVeThang(getDangKyVeThang());
+                if (i == 1) {
+                    this.quanlyvethang.getLabel_ThongBao().setText("Gia hạn vé tháng thành công!");
+                    setDangKyVeThang(null);
+                }
             }
-            
+            else {
+                this.quanlyvethang.getLabel_ThongBao().setText("Chưa chọn vé!");
+            }
+
         });
     }
     

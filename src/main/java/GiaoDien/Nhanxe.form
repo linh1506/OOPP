@@ -82,13 +82,16 @@
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txt_idve" pref="192" max="32767" attributes="0"/>
-                              <Component id="combobox_LoaiXe" alignment="0" max="32767" attributes="0"/>
-                              <Component id="combobox_LoaiVe" alignment="0" max="32767" attributes="0"/>
-                              <Component id="combobox_MaVe" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_BienSoXe" alignment="0" pref="192" max="32767" attributes="0"/>
                               <Component id="btn_NhanXe" alignment="1" min="-2" pref="111" max="-2" attributes="0"/>
-                              <Component id="label_displaybiensoxethang" alignment="0" max="32767" attributes="0"/>
+                              <Component id="label_displaybiensoxethang" alignment="0" pref="134" max="32767" attributes="0"/>
+                              <Component id="label_ThongBaoNhanXe" max="32767" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="txt_BienSoXe" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txt_idve" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="combobox_MaVe" alignment="0" pref="134" max="32767" attributes="0"/>
+                                  <Component id="combobox_LoaiXe" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="combobox_LoaiVe" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -136,7 +139,9 @@
                       <Component id="label_BienSoXeVeThang" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="label_displaybiensoxethang" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="35" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="label_ThongBaoNhanXe" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="13" max="32767" attributes="0"/>
                   <Component id="btn_NhanXe" min="-2" pref="43" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -273,6 +278,11 @@
         <Component class="javax.swing.JLabel" name="label_displaybiensoxethang">
           <Properties>
             <Property name="text" type="java.lang.String" value="Bi&#x1ec3;n s&#x1ed1; xe v&#xe9; th&#xe1;ng"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="label_ThongBaoNhanXe">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="."/>
           </Properties>
         </Component>
       </SubComponents>
