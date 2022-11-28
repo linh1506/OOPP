@@ -59,6 +59,35 @@ public class VeThangGuiRepository {
         return list;
     }
     
+    public static ArrayList<VeThangGui> getVeThangGuiByID(String s,int offset) {
+        String query = "SELECT * FROM `vethanggui` WHERE `IDVe` LIKE '"+s+"%' "+"LIMIT 12 OFFSET "+String.valueOf(offset)+";";
+        ArrayList<VeThangGui> list = new ArrayList<>();
+        Statement stmt = null;
+        ResultSet rs = null;
+        LocalDateTime ThoiGianGui;
+        String IDChoDe;
+        String IDVe;
+        String BienSoXe;
+        LocalDateTime ThoiGianTra;
+        try {
+            stmt = DatabaseConnect.getConnection().createStatement();
+            rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                ThoiGianGui = rs.getObject(1, LocalDateTime.class);
+                IDChoDe = rs.getString(2);
+                IDVe = rs.getString(3);
+                BienSoXe = rs.getString(4);
+                ThoiGianTra = rs.getObject(5, LocalDateTime.class);
+                VeThangGui veThangGui = new VeThangGui(ThoiGianGui, IDChoDe, IDVe, BienSoXe, ThoiGianTra);
+                list.add(veThangGui);
+            }
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
     public static int SetThoiGianTra(VeThangGui veThangGui) {
         String query = "UPDATE `vethanggui` SET `ThoiGianTra` = '"+veThangGui.getThoiGianTra()+"' WHERE `ThoiGianGui` = '"+veThangGui.getThoiGianGui()+"' AND `IDChoDe` = '"+veThangGui.getIDChoDe()+"' AND `IDVe` = '"+veThangGui.getIDVe()+"';";
         try {

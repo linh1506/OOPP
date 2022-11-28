@@ -29,6 +29,20 @@ public class MenuQuanLyController implements MenuInterface{
         QuanLyNhanVien();
         ThongTinTaiKhoan();
         QuanLySuCo();
+        ThongKeLuotGuiXe();
+        ThongKeLuotDangKyVeThang();
+    }
+    
+     public void ThongKeLuotDangKyVeThang(){
+        this.menuquanly.getBtn_ThongKeDangKyVeThang().addActionListener((e)->{
+            ThongKeLuotDangKyVeThangController thongKeLuotDangKyVeThangController  = new ThongKeLuotDangKyVeThangController(this);
+        });
+    }
+    
+    public void ThongKeLuotGuiXe() {
+        this.menuquanly.getBtn_ThongKeLuotGuiXe().addActionListener((e) -> {
+            ThongKeLuotGuiXeController thongKeLuotGuiXeController = new ThongKeLuotGuiXeController(this);
+        });
     }
     
     public void QuanLySuCo() {
