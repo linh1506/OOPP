@@ -68,7 +68,10 @@ public class NhanVienTraController {
     public void TimMaVe() {
         this.traxe.getBtn_TimKiem().addActionListener((e) -> {
             String vePhaiTim = this.traxe.getTxt_TimMaVe().getText().toUpperCase();
-            if (vePhaiTim.startsWith("VN")) {
+            if (vePhaiTim.equals("V")) {
+                InDSAll(vePhaiTim);
+            }
+            else if (vePhaiTim.startsWith("VN")) {
 //                In DS theo vé ngày
                 InDSTheoVeNgay(vePhaiTim);
             }
@@ -97,6 +100,22 @@ public class NhanVienTraController {
         ArrayList<VeThangGui> list = VeThangGuiRepository.getVeThangGuiByIDVeAndThoiGianTraIsNULL(veThangPhaiTim);
         model.setRowCount(0);
         for (VeThangGui i : list) {
+                String loaiXe = (i.getIDChoDe().equals("01") ? "Xe máy" : "Oto");
+                String oblist[] = {i.getBienSoXe(),loaiXe,i.getThoiGianGui().toString(),i.getIDVe()};
+                getModel().addRow(oblist);  
+            }
+    }
+    
+    public void InDSAll(String s) {
+        ArrayList<VeThangGui> list = VeThangGuiRepository.getVeThangGuiByIDVeAndThoiGianTraIsNULL(s);
+        model.setRowCount(0);
+        for (VeThangGui i : list) {
+                String loaiXe = (i.getIDChoDe().equals("01") ? "Xe máy" : "Oto");
+                String oblist[] = {i.getBienSoXe(),loaiXe,i.getThoiGianGui().toString(),i.getIDVe()};
+                getModel().addRow(oblist);  
+            }
+        ArrayList<VeNgayGui> list2 = VeNgayGuiRepository.getVeNgayGuiByIDVeAndThoiGianTraIsNULL(s);
+        for (VeNgayGui i : list2) {
                 String loaiXe = (i.getIDChoDe().equals("01") ? "Xe máy" : "Oto");
                 String oblist[] = {i.getBienSoXe(),loaiXe,i.getThoiGianGui().toString(),i.getIDVe()};
                 getModel().addRow(oblist);  

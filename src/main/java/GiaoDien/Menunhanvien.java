@@ -107,7 +107,6 @@ public class Menunhanvien extends javax.swing.JFrame {
         btn_NhanXe = new javax.swing.JButton();
         btn_NhanVienXuatXe = new javax.swing.JButton();
         btn_QuanLyVeThang = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         btn_BaoCaoSuCo = new javax.swing.JButton();
         btn_Thongtin = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -148,10 +147,6 @@ public class Menunhanvien extends javax.swing.JFrame {
         btn_QuanLyVeThang.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn_QuanLyVeThang.setForeground(new java.awt.Color(0, 153, 153));
         btn_QuanLyVeThang.setText("Quản lý vé tháng");
-
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 153, 153));
-        jButton5.setText("Quản lý bãi xe");
 
         btn_BaoCaoSuCo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn_BaoCaoSuCo.setForeground(new java.awt.Color(0, 153, 153));
@@ -208,7 +203,7 @@ public class Menunhanvien extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(label_SLOto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         label_TenNhanVien.setForeground(new java.awt.Color(255, 255, 255));
@@ -235,7 +230,6 @@ public class Menunhanvien extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btn_Thongtin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btn_QuanLyVeThang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btn_NhanVienXuatXe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btn_NhanXe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -257,7 +251,7 @@ public class Menunhanvien extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(label_TenNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_NhanXe)
                         .addGap(18, 18, 18)
@@ -265,12 +259,10 @@ public class Menunhanvien extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btn_QuanLyVeThang)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5)
-                        .addGap(18, 18, 18)
                         .addComponent(btn_BaoCaoSuCo)
                         .addGap(18, 18, 18)
                         .addComponent(btn_Thongtin))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -334,7 +326,6 @@ public class Menunhanvien extends javax.swing.JFrame {
     private javax.swing.JButton btn_NhanXe;
     private javax.swing.JButton btn_QuanLyVeThang;
     private javax.swing.JButton btn_Thongtin;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
