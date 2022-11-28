@@ -100,4 +100,17 @@ public class VeThangGuiRepository {
         }
         return 0;
     }
+    
+    public static Object GetThoiGianTraByID(String s) {
+        String query = "SELECT ThoiGianTra FROM `vethanggui` WHERE IDVe LIKE '"+s+"' ORDER BY ThoiGianGui DESC LIMIT 1;";
+        LocalDateTime a = null;
+        try {
+            Statement stmt = DatabaseConnect.getConnection().createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            rs.next();
+            a = rs.getObject(1, LocalDateTime.class);
+        } catch (Exception e) {
+        }
+        return a;
+    }
 }

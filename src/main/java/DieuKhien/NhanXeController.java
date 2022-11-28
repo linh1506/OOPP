@@ -95,6 +95,7 @@ public class NhanXeController {
     public void IsVeNgay() {
         this.nhanxe.getCombobox_LoaiVe().addActionListener((e) -> {
             IsSelected();
+            this.nhanxe.getLabel_ThongBaoNhanXe().setText("");
         });
     }
     
@@ -124,18 +125,27 @@ public class NhanXeController {
 //                String IDVe = this.nhanxe.getTxt_idve().getText().toUpperCase();
                 XuLyLayVeThang();
                 if (getVethang() != null) {
-                    VeThangGui veThangGui = new VeThangGui(ThoiGianGui, IDChoDe, getVethang().getIDVeThang(), getVethang().getBienSoXe(), null);
-                    int isSuccess = VeThangGuiRepository.NhanXe(veThangGui);
-                    int isSuccess2 = VeThangRepository.SetStatusTicketByID(getVethang().getIDVeThang(), 1);
-                    if (isSuccess == 1 && isSuccess2 ==1) {
-                        System.out.println("Nhan xe thanh cong");
-                        this.nhanxe.getLabel_ThongBaoNhanXe().setText("Nhận xe thành công!");
-                        setVethang(null);
+                    if (VeThangGuiRepository.GetThoiGianTraByID(getVethang().getIDVeThang()) != null) {
+                        VeThangGui veThangGui = new VeThangGui(ThoiGianGui, IDChoDe, getVethang().getIDVeThang(), getVethang().getBienSoXe(), null);
+                        int isSuccess = VeThangGuiRepository.NhanXe(veThangGui);
+                        int isSuccess2 = VeThangRepository.SetStatusTicketByID(getVethang().getIDVeThang(), 1);
+                        if (isSuccess == 1 && isSuccess2 ==1) {
+                            System.out.println("Nhan xe thanh cong");
+                            this.nhanxe.getLabel_ThongBaoNhanXe().setText("Nhận xe thành công!");
+                            setVethang(null);
+                        }
+                        else {
+                            System.out.println("Nhan xe loi");
+                        }
                     }
                     else {
-                        System.out.println("Nhan xe loi");
+                        this.nhanxe.getLabel_ThongBaoNhanXe().setText("Thẻ đang được sử dụng!");
                     }
+                } else {
+                    this.nhanxe.getLabel_ThongBaoNhanXe().setText("Thẻ chưa được đăng ký!");
+
                 }
+
                 
             }
             IsSelected();
@@ -145,6 +155,8 @@ public class NhanXeController {
     public void IsXeMay() {
         this.nhanxe.getCombobox_LoaiXe().addActionListener((e) -> {
             IsSelected();
+            this.nhanxe.getLabel_ThongBaoNhanXe().setText("");
+
 
         });
     }
@@ -189,6 +201,7 @@ public class NhanXeController {
             ArrayList<DangKyVeThang> list = DangKyVeThangRepository.getVeThangByID(IDVe);
             if (list.size() == 0) {
                 System.out.println("Danh sach rong");
+                setVethang(null);
             }
             else
             {
