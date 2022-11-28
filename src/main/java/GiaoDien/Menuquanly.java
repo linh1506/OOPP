@@ -45,12 +45,12 @@ public class Menuquanly extends javax.swing.JFrame {
         this.btn_Quanlynhanvien = btn_Quanlynhanvien;
     }
 
-    public JButton getBtn_Thongke() {
-        return btn_Thongke;
+    public JButton getBtn_ThongKeDangKyVeThang() {
+        return btn_ThongKeDangKyVeThang;
     }
 
-    public void setBtn_Thongke(JButton btn_Thongke) {
-        this.btn_Thongke = btn_Thongke;
+    public void setBtn_ThongKeDangKyVeThang(JButton btn_Thongke) {
+        this.btn_ThongKeDangKyVeThang = btn_Thongke;
     }
 
     public JButton getBtn_Thongtin() {
@@ -69,6 +69,15 @@ public class Menuquanly extends javax.swing.JFrame {
         this.label_TenQuanLy = label_TenQuanLy;
     }
 
+    public JButton getBtn_thongkeluotguixe() {
+        return btn_thongkeluotguixe;
+    }
+
+    public void setBtn_thongkeluotguixe(JButton btn_thongkeluotguixe) {
+        this.btn_thongkeluotguixe = btn_thongkeluotguixe;
+    }
+
+    
     
     
     @SuppressWarnings("unchecked")
@@ -78,12 +87,12 @@ public class Menuquanly extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btn_DangXuat = new javax.swing.JButton();
-        btn_Thongke = new javax.swing.JButton();
+        btn_ThongKeDangKyVeThang = new javax.swing.JButton();
         btn_Thongtin = new javax.swing.JButton();
         label_TenQuanLy = new javax.swing.JLabel();
         btn_Quanlynhanvien = new javax.swing.JButton();
         btn_QuanLySuCo = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_thongkeluotguixe = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,12 +111,12 @@ public class Menuquanly extends javax.swing.JFrame {
             }
         });
 
-        btn_Thongke.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btn_Thongke.setForeground(new java.awt.Color(0, 153, 153));
-        btn_Thongke.setText("Thống kê đăng ký vé tháng");
-        btn_Thongke.addActionListener(new java.awt.event.ActionListener() {
+        btn_ThongKeDangKyVeThang.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btn_ThongKeDangKyVeThang.setForeground(new java.awt.Color(0, 153, 153));
+        btn_ThongKeDangKyVeThang.setText("Thống kê đăng ký vé tháng");
+        btn_ThongKeDangKyVeThang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ThongkeActionPerformed(evt);
+                btn_ThongKeDangKyVeThangActionPerformed(evt);
             }
         });
 
@@ -137,9 +146,9 @@ public class Menuquanly extends javax.swing.JFrame {
         btn_QuanLySuCo.setForeground(new java.awt.Color(0, 153, 153));
         btn_QuanLySuCo.setText("Quản lý sự cố");
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 153, 153));
-        jButton2.setText("Thống kê lượt gửi xe");
+        btn_thongkeluotguixe.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btn_thongkeluotguixe.setForeground(new java.awt.Color(0, 153, 153));
+        btn_thongkeluotguixe.setText("Thống kê lượt gửi xe");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -156,11 +165,11 @@ public class Menuquanly extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btn_Thongke, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_ThongKeDangKyVeThang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_Quanlynhanvien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_Thongtin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_QuanLySuCo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btn_thongkeluotguixe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -170,7 +179,7 @@ public class Menuquanly extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label_TenQuanLy, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
-                .addComponent(btn_Thongke, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_ThongKeDangKyVeThang, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_Quanlynhanvien, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -178,7 +187,7 @@ public class Menuquanly extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btn_QuanLySuCo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_thongkeluotguixe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 75, Short.MAX_VALUE))
         );
 
@@ -207,9 +216,9 @@ public class Menuquanly extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_ThongkeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ThongkeActionPerformed
+    private void btn_ThongKeDangKyVeThangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ThongKeDangKyVeThangActionPerformed
            // TODO add your handling code here:
-    }//GEN-LAST:event_btn_ThongkeActionPerformed
+    }//GEN-LAST:event_btn_ThongKeDangKyVeThangActionPerformed
 
     private void btn_ThongtinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ThongtinActionPerformed
         // TODO add your handling code here:
@@ -229,9 +238,9 @@ public class Menuquanly extends javax.swing.JFrame {
     private javax.swing.JButton btn_DangXuat;
     private javax.swing.JButton btn_QuanLySuCo;
     private javax.swing.JButton btn_Quanlynhanvien;
-    private javax.swing.JButton btn_Thongke;
+    private javax.swing.JButton btn_ThongKeDangKyVeThang;
     private javax.swing.JButton btn_Thongtin;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_thongkeluotguixe;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel label_TenQuanLy;

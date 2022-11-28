@@ -29,6 +29,8 @@ public class MenuQuanLyController implements MenuInterface{
         QuanLyNhanVien();
         ThongTinTaiKhoan();
         QuanLySuCo();
+        ThongKeLuotGuiXe();
+        ThongKeLuotDangKyVeThang();
     }
     
     public void QuanLySuCo() {
@@ -59,6 +61,18 @@ public class MenuQuanLyController implements MenuInterface{
     public void ThongTinTaiKhoan() {
         this.menuquanly.getBtn_Thongtin().addActionListener((e) -> {
             ThongTinTKController thongTinTKController = new ThongTinTKController(this,person);
+        });
+    }
+    
+    public void ThongKeLuotGuiXe(){
+        this.menuquanly.getBtn_thongkeluotguixe().addActionListener((e)->{
+            ThongKeLuotGuiXeController thongKeLuotGuiXeController = new ThongKeLuotGuiXeController(this);
+        });
+    }
+    
+    public void ThongKeLuotDangKyVeThang(){
+        this.menuquanly.getBtn_ThongKeDangKyVeThang().addActionListener((e)->{
+            ThongKeLuotDangKyVeThangController thongKeLuotDangKyVeThangController  = new ThongKeLuotDangKyVeThangController(this);
         });
     }
 }
