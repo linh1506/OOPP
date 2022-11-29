@@ -1,37 +1,45 @@
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Entity\SuCo.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Traxe.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\DieuKhien\QuanLyNhanVienController.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Repository\VeThangRepository.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\DieuKhien\NhanVienTraController.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Quenmatkhau.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Entity\Person.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Menunhanvien.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Thongkesuco.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Repository\VeNgayGuiRepository.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Baocaosuco.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Repository\SuCoRepository.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\DieuKhien\LoginController.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Nhanxe.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Repository\VeNgayRepository.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\DieuKhien\MenuQuanLyController.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Entity\VeNgay.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Database\DatabaseConnect.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\DieuKhien\BaoCaoSuCoController.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Repository\ChoDeXeRepository.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\DieuKhien\MenuInterface.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Entity\VeNgayGui.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Thongtintaikhoan.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Repository\VeThangGuiRepository.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\DieuKhien\MenuNhanVienController.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Menuquanly.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\DieuKhien\ThongKeSuCoController.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\com\mycompany\ql_baixe\MainClass.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Entity\VeThang.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Quanlynhanvien.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Entity\ChoDeXe.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Entity\VeThangGui.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\Repository\PersonRepository.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\GiaoDien\Login.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\DieuKhien\ThongTinTKController.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\DieuKhien\NhanXeController.java
-C:\Users\admin\OneDrive - Nuce\Documents\NetBeansProjects\QL_BaiXe\src\main\java\DieuKhien\QuenMatKhauController.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\GiaoDien\Thongtintaikhoan.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Entity\VeThang.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\DieuKhien\ThongKeLuotGuiXeController.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Repository\VeThangGuiRepository.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\GiaoDien\Baocaosuco.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Repository\ChoDeXeRepository.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Repository\VeNgayRepository.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\GiaoDien\Nhanxe.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\DieuKhien\MenuQuanLyController.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Entity\SuCo.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\DieuKhien\QuenMatKhauController.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\DieuKhien\ThongKeLuotDangKyVeThangController.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\GiaoDien\Thongkesuco.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Repository\DangKyVeThangRepository.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\com\mycompany\ql_baixe\MainClass.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\GiaoDien\Menuquanly.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\DieuKhien\NhanXeController.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\GiaoDien\Traxe.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Entity\VeNgayGui.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Repository\VeNgayGuiRepository.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\GiaoDien\Thongkeluotdangkyvethang.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\DieuKhien\BaoCaoSuCoController.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Entity\VeThangGui.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Repository\PersonRepository.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\DieuKhien\QuanLyNhanVienController.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\DieuKhien\ThongTinTKController.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\DieuKhien\NhanVienTraController.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\DieuKhien\QuanLyVeThangController.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\GiaoDien\Quanlynhanvien.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\GiaoDien\Thongkeluotguixe.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\GiaoDien\Quenmatkhau.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\DieuKhien\MenuInterface.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Entity\Person.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Entity\VeNgay.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\GiaoDien\Menunhanvien.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\GiaoDien\Quanlyvethang.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Repository\VeThangRepository.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\DieuKhien\LoginController.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\DieuKhien\ThongKeSuCoController.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Entity\ChoDeXe.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Entity\DangKyVeThang.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\DieuKhien\MenuNhanVienController.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\GiaoDien\Login.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Database\DatabaseConnect.java
+C:\Users\Acer\Desktop\OOPP-master\src\main\java\Repository\SuCoRepository.java
