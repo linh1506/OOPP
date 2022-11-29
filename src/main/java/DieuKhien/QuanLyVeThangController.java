@@ -56,6 +56,9 @@ public class QuanLyVeThangController {
             else if (BienSoXe.equals("")) {
                 this.quanlyvethang.getLabel_ThongBaoDangKy().setText("Biển số xe không được để trống!");
             }
+            else if (CheckVeThangDangDuocSuDung(IDVeThang) == true) {
+                this.quanlyvethang.getLabel_ThongBaoDangKy().setText("Vé đang được sử dụng, vui lòng đăng ký vé khác!");
+            }
             else {
                 LocalDateTime now = LocalDateTime.now();
                 LocalDateTime date = now.plusMonths(1);
@@ -90,6 +93,16 @@ public class QuanLyVeThangController {
             }
         
         });
+    }
+    
+    public boolean CheckVeThangDangDuocSuDung(String IDVe) {
+        DangKyVeThang a = DangKyVeThangRepository.getVeThangByIDAndThoiGianKetThuc(IDVe,LocalDateTime.now());
+        if (a != null) {
+            return true; 
+//            Vé đang được sử dụng
+        }
+        return false;
+//        Vé chưa được sử dụng
     }
     
     public void GiaHanVeThang() {
