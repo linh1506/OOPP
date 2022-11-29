@@ -21,6 +21,14 @@ public class Menuquanly extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
+    public JButton getBtn_ThongKeLuotGuiXe() {
+        return btn_ThongKeLuotGuiXe;
+    }
+
+    public void setBtn_ThongKeLuotGuiXe(JButton btn_ThongKeLuotGuiXe) {
+        this.btn_ThongKeLuotGuiXe = btn_ThongKeLuotGuiXe;
+    }
+
     public JButton getBtn_QuanLySuCo() {
         return btn_QuanLySuCo;
     }
@@ -69,15 +77,6 @@ public class Menuquanly extends javax.swing.JFrame {
         this.label_TenQuanLy = label_TenQuanLy;
     }
 
-    public JButton getBtn_thongkeluotguixe() {
-        return btn_thongkeluotguixe;
-    }
-
-    public void setBtn_thongkeluotguixe(JButton btn_thongkeluotguixe) {
-        this.btn_thongkeluotguixe = btn_thongkeluotguixe;
-    }
-
-    
     
     
     @SuppressWarnings("unchecked")
@@ -92,7 +91,7 @@ public class Menuquanly extends javax.swing.JFrame {
         label_TenQuanLy = new javax.swing.JLabel();
         btn_Quanlynhanvien = new javax.swing.JButton();
         btn_QuanLySuCo = new javax.swing.JButton();
-        btn_thongkeluotguixe = new javax.swing.JButton();
+        btn_ThongKeLuotGuiXe = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,9 +145,9 @@ public class Menuquanly extends javax.swing.JFrame {
         btn_QuanLySuCo.setForeground(new java.awt.Color(0, 153, 153));
         btn_QuanLySuCo.setText("Quản lý sự cố");
 
-        btn_thongkeluotguixe.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btn_thongkeluotguixe.setForeground(new java.awt.Color(0, 153, 153));
-        btn_thongkeluotguixe.setText("Thống kê lượt gửi xe");
+        btn_ThongKeLuotGuiXe.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btn_ThongKeLuotGuiXe.setForeground(new java.awt.Color(0, 153, 153));
+        btn_ThongKeLuotGuiXe.setText("Thống kê lượt gửi xe");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -169,7 +168,7 @@ public class Menuquanly extends javax.swing.JFrame {
                             .addComponent(btn_Quanlynhanvien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_Thongtin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_QuanLySuCo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_thongkeluotguixe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btn_ThongKeLuotGuiXe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -187,7 +186,7 @@ public class Menuquanly extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btn_QuanLySuCo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_thongkeluotguixe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_ThongKeLuotGuiXe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 75, Short.MAX_VALUE))
         );
 
@@ -239,8 +238,8 @@ public class Menuquanly extends javax.swing.JFrame {
     private javax.swing.JButton btn_QuanLySuCo;
     private javax.swing.JButton btn_Quanlynhanvien;
     private javax.swing.JButton btn_ThongKeDangKyVeThang;
+    private javax.swing.JButton btn_ThongKeLuotGuiXe;
     private javax.swing.JButton btn_Thongtin;
-    private javax.swing.JButton btn_thongkeluotguixe;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel label_TenQuanLy;

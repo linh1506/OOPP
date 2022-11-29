@@ -62,4 +62,100 @@ public class DangKyVeThangRepository {
             }
         return 1;
     }
+    
+    public static ArrayList<DangKyVeThang> getListDangKyVeThang() {
+        ArrayList<DangKyVeThang> list = new ArrayList<>();
+        String query = "SELECT * FROM `dangkyvethang`";
+        int ID;
+        String TenKhach;
+        String SoDienThoai;
+        LocalDateTime ThoiGianDangKy;
+        LocalDateTime ThoiGianKetThuc;
+        String IDVeThang;
+        String BienSoXe;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = DatabaseConnect.getConnection().createStatement();
+            rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                ID = rs.getInt(1);
+                TenKhach = rs.getString(2);
+                SoDienThoai = rs.getString(3);
+                ThoiGianDangKy = rs.getObject(4, LocalDateTime.class);
+                ThoiGianKetThuc = rs.getObject(5, LocalDateTime.class);
+                IDVeThang = rs.getString(6);
+                BienSoXe = rs.getString(7);
+                DangKyVeThang p = new DangKyVeThang(ID, TenKhach, SoDienThoai, ThoiGianDangKy, ThoiGianKetThuc, IDVeThang, BienSoXe);
+                list.add(p);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
+    public static ArrayList<DangKyVeThang> inListDangKyVeThangVoiMocThoiGian(LocalDateTime a, LocalDateTime b){
+        ArrayList<DangKyVeThang> list = new ArrayList<>();
+        String query = "SELECT * FROM `dangkyvethang` where thoigiandangky between '"+a+"' and '"+b+"'";
+        int ID;
+        String TenKhach;
+        String SoDienThoai;
+        LocalDateTime ThoiGianDangKy;
+        LocalDateTime ThoiGianKetThuc;
+        String IDVeThang;
+        String BienSoXe;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = DatabaseConnect.getConnection().createStatement();
+            rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                ID = rs.getInt(1);
+                TenKhach = rs.getString(2);
+                SoDienThoai = rs.getString(3);
+                ThoiGianDangKy = rs.getObject(4, LocalDateTime.class);
+                ThoiGianKetThuc = rs.getObject(5, LocalDateTime.class);
+                IDVeThang = rs.getString(6);
+                BienSoXe = rs.getString(7);
+                DangKyVeThang p = new DangKyVeThang(ID, TenKhach, SoDienThoai, ThoiGianDangKy, ThoiGianKetThuc, IDVeThang, BienSoXe);
+                list.add(p);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
+    public static ArrayList<DangKyVeThang> inListDangKyVeThangTimKiem(LocalDateTime a, LocalDateTime b,String c){
+        ArrayList<DangKyVeThang> list = new ArrayList<>();
+        String query = "SELECT * FROM `dangkyvethang` where "+"IDVeThang = '"+c+"' and thoigiandangky between '"+a+"' and '"+b+"'";
+        int ID;
+        String TenKhach;
+        String SoDienThoai;
+        LocalDateTime ThoiGianDangKy;
+        LocalDateTime ThoiGianKetThuc;
+        String IDVeThang;
+        String BienSoXe;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = DatabaseConnect.getConnection().createStatement();
+            rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                ID = rs.getInt(1);
+                TenKhach = rs.getString(2);
+                SoDienThoai = rs.getString(3);
+                ThoiGianDangKy = rs.getObject(4, LocalDateTime.class);
+                ThoiGianKetThuc = rs.getObject(5, LocalDateTime.class);
+                IDVeThang = rs.getString(6);
+                BienSoXe = rs.getString(7);
+                DangKyVeThang p = new DangKyVeThang(ID, TenKhach, SoDienThoai, ThoiGianDangKy, ThoiGianKetThuc, IDVeThang, BienSoXe);
+                list.add(p);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

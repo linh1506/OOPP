@@ -33,6 +33,18 @@ public class MenuQuanLyController implements MenuInterface{
         ThongKeLuotDangKyVeThang();
     }
     
+     public void ThongKeLuotDangKyVeThang(){
+        this.menuquanly.getBtn_ThongKeDangKyVeThang().addActionListener((e)->{
+            ThongKeLuotDangKyVeThangController thongKeLuotDangKyVeThangController  = new ThongKeLuotDangKyVeThangController(this);
+        });
+    }
+    
+    public void ThongKeLuotGuiXe() {
+        this.menuquanly.getBtn_ThongKeLuotGuiXe().addActionListener((e) -> {
+            ThongKeLuotGuiXeController thongKeLuotGuiXeController = new ThongKeLuotGuiXeController(this);
+        });
+    }
+    
     public void QuanLySuCo() {
         this.menuquanly.getBtn_QuanLySuCo().addActionListener((e) -> {
             ThongKeSuCoController thongKeSuCoController = new ThongKeSuCoController(this);
@@ -61,18 +73,6 @@ public class MenuQuanLyController implements MenuInterface{
     public void ThongTinTaiKhoan() {
         this.menuquanly.getBtn_Thongtin().addActionListener((e) -> {
             ThongTinTKController thongTinTKController = new ThongTinTKController(this,person);
-        });
-    }
-    
-    public void ThongKeLuotGuiXe(){
-        this.menuquanly.getBtn_thongkeluotguixe().addActionListener((e)->{
-            ThongKeLuotGuiXeController thongKeLuotGuiXeController = new ThongKeLuotGuiXeController(this);
-        });
-    }
-    
-    public void ThongKeLuotDangKyVeThang(){
-        this.menuquanly.getBtn_ThongKeDangKyVeThang().addActionListener((e)->{
-            ThongKeLuotDangKyVeThangController thongKeLuotDangKyVeThangController  = new ThongKeLuotDangKyVeThangController(this);
         });
     }
 }

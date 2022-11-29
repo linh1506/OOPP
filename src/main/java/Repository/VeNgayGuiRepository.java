@@ -60,6 +60,38 @@ public class VeNgayGuiRepository {
         return list;
     }
     
+    public static ArrayList<VeNgayGui> getVeNgayGuiByID(String s,int offset) {
+        String query = "SELECT * FROM `vengaygui` WHERE `IDVe` LIKE '"+s+"%' "+"LIMIT 12 OFFSET "+String.valueOf(offset)+";";
+        ArrayList<VeNgayGui> list = new ArrayList<>();
+        Statement stmt = null;
+        ResultSet rs = null;
+        LocalDateTime ThoiGianGui;
+        String IDChoDe;
+        String IDVe;
+        String BienSoXe;
+        LocalDateTime ThoiGianTra;
+        int Gia;
+         try {
+             stmt = DatabaseConnect.getConnection().createStatement();
+             rs = stmt.executeQuery(query);
+             while (rs.next()) {
+                 ThoiGianGui = rs.getObject(1, LocalDateTime.class);
+                 IDChoDe = rs.getString(2);
+                 IDVe = rs.getString(3);
+                 BienSoXe = rs.getString(4);
+                 ThoiGianTra = rs.getObject(5, LocalDateTime.class);
+                 Gia = rs.getInt(6);
+                 VeNgayGui veNgayGui = new VeNgayGui(ThoiGianGui, IDChoDe, IDVe, BienSoXe, ThoiGianTra, Gia);
+                 list.add(veNgayGui);
+             }
+             return list;
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+         return list;
+
+    }
+    
     public static int SetThoiGianTra(VeNgayGui veNgayGui) {
         String query = "UPDATE `vengaygui` SET `ThoiGianTra` = '"+veNgayGui.getThoiGianTra()+"', `Gia` = '"+veNgayGui.getGia()+"' WHERE `ThoiGianGui` = '"+veNgayGui.getThoiGianGui()+"' AND `IDChoDe` = '"+veNgayGui.getIDChoDe()+"' AND `IDVe` = '"+veNgayGui.getIDVe()+"';";
         try {
