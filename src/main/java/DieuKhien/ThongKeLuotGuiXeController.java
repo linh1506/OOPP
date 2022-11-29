@@ -9,7 +9,12 @@ import Entity.VeThangGui;
 import GiaoDien.Thongkeluotguixe;
 import Repository.VeNgayGuiRepository;
 import Repository.VeThangGuiRepository;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,6 +28,24 @@ public class ThongKeLuotGuiXeController {
     private int Page = 1;
     private boolean TimTheoVeThang = false;
     private boolean TimTheoVeNgay = false;
+    private LocalDateTime from = null;
+    private LocalDateTime to = null;
+
+    public LocalDateTime getFrom() {
+        return from;
+    }
+
+    public void setFrom(LocalDateTime from) {
+        this.from = from;
+    }
+
+    public LocalDateTime getTo() {
+        return to;
+    }
+
+    public void setTo(LocalDateTime to) {
+        this.to = to;
+    }
 
     public int getPage() {
         return Page;
@@ -48,7 +71,26 @@ public class ThongKeLuotGuiXeController {
         this.TimTheoVeNgay = TimTheoVeNgay;
     }
     
-
+    public void Loc() {
+        this.thongkeluotguixe.getBtn_Loc().addActionListener((e) -> {
+            Date a = this.thongkeluotguixe.getDate_from().getDate();
+            setFrom(convertToLocalDateTimeViaMilisecond(a));
+            Date b = this.thongkeluotguixe.getDate_to().getDate();
+            setTo(convertToLocalDateTimeViaMilisecond(b));
+            if (this.thongkeluotguixe.getCombobox_Categories().getSelectedItem().toString().equals("Vé tháng")){
+                setPage(1);
+                int offset = (getPage()-1)*12;
+                InDSVeThang(offset);
+            }
+        });
+    }
+    
+    public LocalDateTime convertToLocalDateTimeViaMilisecond(Date dateToConvert) {
+        return Instant.ofEpochMilli(dateToConvert.getTime())
+            .atZone(ZoneId.systemDefault())
+            .toLocalDateTime();
+}
+    
     public ThongKeLuotGuiXeController(MenuQuanLyController menuQuanLyController) {
         this.menuQuanLyController = menuQuanLyController;
         thongkeluotguixe = new Thongkeluotguixe();
@@ -59,6 +101,7 @@ public class ThongKeLuotGuiXeController {
         CheckBox();
         Sau();
         Truoc();
+        Loc();
     }
 
     public DefaultTableModel getModel() {
@@ -86,8 +129,6 @@ public class ThongKeLuotGuiXeController {
                 setTimTheoVeThang(false);
                 setPage(1);
                 this.thongkeluotguixe.getLabel_Page().setText(String.valueOf(getPage()));
-            } else if (categories.equals("All")) {
-                
             }
         });
     }
@@ -129,13 +170,20 @@ public class ThongKeLuotGuiXeController {
     }
     
     public void InDSVeThang(int offset) {
-        ArrayList<VeThangGui> list = VeThangGuiRepository.getVeThangGuiByID("VT", offset);
+        ArrayList<VeThangGui> list = VeThangGuiRepository.getVeThangGuiByID("VT", offset, getTo(), getFrom());
         getModel().setRowCount(0);
         if (list.size()==0) {
             System.out.println("Rong");
         }
         for (VeThangGui a:list) {
-            String oblist[] = {a.getIDVe(),a.getBienSoXe(),a.getThoiGianGui().toString(),a.getThoiGianTra().toString(),"0"};
+            String Tra;
+            if (a.getThoiGianTra() == null ) {
+                Tra = "Chưa trả";
+            }
+            else {
+                Tra = a.getThoiGianTra().toString();
+            }
+            String oblist[] = {a.getIDVe(),a.getBienSoXe(),a.getThoiGianGui().toString(),Tra,"0"};
             getModel().addRow(oblist);
         }
     }

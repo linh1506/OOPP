@@ -4,6 +4,7 @@
  */
 package GiaoDien;
 
+import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -15,6 +16,30 @@ public class Thongkeluotguixe extends javax.swing.JFrame {
     public Thongkeluotguixe() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+
+    public JDateChooser getDate_from() {
+        return date_from;
+    }
+
+    public void setDate_from(JDateChooser date_from) {
+        this.date_from = date_from;
+    }
+
+    public JDateChooser getDate_to() {
+        return date_to;
+    }
+
+    public void setDate_to(JDateChooser date_to) {
+        this.date_to = date_to;
+    }
+
+    public JButton getBtn_Loc() {
+        return btn_Loc;
+    }
+
+    public void setBtn_Loc(JButton btn_Loc) {
+        this.btn_Loc = btn_Loc;
     }
 
     public JButton getBtn_Sau() {
@@ -90,7 +115,6 @@ public class Thongkeluotguixe extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDatePickerUtil1 = new org.jdatepicker.util.JDatePickerUtil();
         jPanel1 = new javax.swing.JPanel();
         btn_Exit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -102,6 +126,9 @@ public class Thongkeluotguixe extends javax.swing.JFrame {
         btn_Tim = new javax.swing.JButton();
         txt_Tim = new javax.swing.JTextField();
         Combobox_Categories = new javax.swing.JComboBox<>();
+        date_from = new com.toedter.calendar.JDateChooser();
+        date_to = new com.toedter.calendar.JDateChooser();
+        btn_Loc = new javax.swing.JButton();
         btn_Truoc = new javax.swing.JButton();
         label_Page = new javax.swing.JLabel();
         btn_Sau = new javax.swing.JButton();
@@ -163,7 +190,9 @@ public class Thongkeluotguixe extends javax.swing.JFrame {
 
         txt_Tim.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        Combobox_Categories.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vé tháng", "Vé ngày", "All" }));
+        Combobox_Categories.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Vé tháng", "Vé ngày" }));
+
+        btn_Loc.setText("Lọc");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -180,9 +209,13 @@ public class Thongkeluotguixe extends javax.swing.JFrame {
                             .addComponent(txt_Tim)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Combobox_Categories, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2))
-                                .addGap(0, 41, Short.MAX_VALUE)))))
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(Combobox_Categories, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel2)
+                                        .addComponent(date_from, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                                        .addComponent(date_to, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(btn_Loc, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 25, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -193,10 +226,16 @@ public class Thongkeluotguixe extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_Tim, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_Tim, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_Tim, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Combobox_Categories, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addGap(92, 92, 92)
+                .addComponent(date_from, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(date_to, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_Loc)
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         btn_Truoc.setText("Trang trước");
@@ -248,8 +287,8 @@ public class Thongkeluotguixe extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Truoc)
@@ -317,10 +356,12 @@ public class Thongkeluotguixe extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Combobox_Categories;
     private javax.swing.JButton btn_Exit;
+    private javax.swing.JButton btn_Loc;
     private javax.swing.JButton btn_Sau;
     private javax.swing.JButton btn_Tim;
     private javax.swing.JButton btn_Truoc;
-    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil1;
+    private com.toedter.calendar.JDateChooser date_from;
+    private com.toedter.calendar.JDateChooser date_to;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
