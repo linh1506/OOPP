@@ -68,9 +68,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="285" max="-2" attributes="0"/>
                   <Component id="btn_Truoc" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="label_Page" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="label_Page" min="-2" pref="14" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="btn_Sau" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -212,6 +212,7 @@
                                               <Component id="date_to" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="btn_Loc" min="-2" pref="62" max="-2" attributes="0"/>
+                                          <Component id="label_TongTien" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
                                   </Group>
@@ -239,7 +240,9 @@
                       <Component id="date_to" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btn_Loc" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="67" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="label_TongTien" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -274,7 +277,7 @@
             <Component class="javax.swing.JComboBox" name="Combobox_Categories">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;&quot;, &quot;V&#xe9; th&#xe1;ng&quot;, &quot;V&#xe9; ng&#xe0;y&quot; })" type="code"/>
+                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;V&#xe9; th&#xe1;ng&quot;, &quot;V&#xe9; ng&#xe0;y&quot; })" type="code"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -288,6 +291,11 @@
             <Component class="javax.swing.JButton" name="btn_Loc">
               <Properties>
                 <Property name="text" type="java.lang.String" value="L&#x1ecd;c"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="label_TongTien">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="T&#x1ed5;ng ti&#x1ec1;n: "/>
               </Properties>
             </Component>
           </SubComponents>

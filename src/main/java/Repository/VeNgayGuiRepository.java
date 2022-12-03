@@ -60,8 +60,48 @@ public class VeNgayGuiRepository {
         return list;
     }
     
-    public static ArrayList<VeNgayGui> getVeNgayGuiByID(String s,int offset) {
-        String query = "SELECT * FROM `vengaygui` WHERE `IDVe` LIKE '"+s+"%' "+"LIMIT 12 OFFSET "+String.valueOf(offset)+";";
+    public static int getTongTien(String IDVe, LocalDateTime to, LocalDateTime from) {
+        String query = "";
+        if (to == null && from == null) {
+            query = "SELECT SUM(Gia) FROM `vengaygui` WHERE `IDVe` LIKE '"+IDVe+"%' AND `ThoiGianTra` IS NOT NULL;";
+
+        }
+        else if (to != null && from == null) {
+            query = "SELECT SUM(Gia) FROM `vengaygui` WHERE `IDVe` LIKE '"+IDVe+"%' AND `ThoiGianGui` < '"+to+"' AND `ThoiGianTra` IS NOT NULL;";
+        }
+        else if (to == null && from != null) {
+            query = "SELECT SUM(Gia) FROM `vengaygui` WHERE `IDVe` LIKE '"+IDVe+"%' AND `ThoiGianGui` > '"+from+"' AND `ThoiGianTra` IS NOT NULL;";
+
+        }
+        else if (to != null & from != null) {
+            query = "SELECT SUM(Gia) FROM `vengaygui` WHERE `IDVe` LIKE '"+IDVe+"%' AND `ThoiGianGui` < '"+to+"' AND `ThoiGianGui` > '"+from+"' AND `ThoiGianTra` IS NOT NULL;";
+        }
+        int TongTien=0;
+        try {
+            Statement stmt = null;
+            ResultSet rs = null;
+            stmt = DatabaseConnect.getConnection().createStatement();
+            rs = stmt.executeQuery(query);
+            rs.next();
+            TongTien = rs.getInt(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return TongTien;
+    }
+    
+    public static ArrayList<VeNgayGui> getVeNgayGuiByID(String s,int offset, LocalDateTime to, LocalDateTime from) {
+        String query="";
+        if (to == null && from == null) {
+            query = "SELECT * FROM `vengaygui` WHERE `IDVe` LIKE '"+s+"%' "+"LIMIT 12 OFFSET "+String.valueOf(offset)+";";            
+        } else if (to != null && from == null) {
+            query = "SELECT *  FROM `vengaygui` WHERE `ThoiGianGui` < '"+to+"'"+"LIMIT 12 OFFSET "+String.valueOf(offset)+";";
+        } else if (to == null && from != null) {
+            query = "SELECT *  FROM `vengaygui` WHERE `ThoiGianGui` > '"+from+"'"+"LIMIT 12 OFFSET "+String.valueOf(offset)+";";
+        } else if (to != null && from != null) {
+            query = "SELECT *  FROM `vengaygui` WHERE `ThoiGianGui` > '"+from+"' AND `ThoiGianGui` < '"+to+"' "+"LIMIT 12 OFFSET "+String.valueOf(offset)+";";
+        }
+//        String query = "SELECT * FROM `vengaygui` WHERE `IDVe` LIKE '"+s+"%' "+"LIMIT 12 OFFSET "+String.valueOf(offset)+";";
         ArrayList<VeNgayGui> list = new ArrayList<>();
         Statement stmt = null;
         ResultSet rs = null;

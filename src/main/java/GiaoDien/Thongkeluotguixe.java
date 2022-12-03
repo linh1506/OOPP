@@ -22,6 +22,14 @@ public class Thongkeluotguixe extends javax.swing.JFrame {
         return date_from;
     }
 
+    public JLabel getLabel_TongTien() {
+        return label_TongTien;
+    }
+
+    public void setLabel_TongTien(JLabel label_TongTien) {
+        this.label_TongTien = label_TongTien;
+    }
+
     public void setDate_from(JDateChooser date_from) {
         this.date_from = date_from;
     }
@@ -129,6 +137,7 @@ public class Thongkeluotguixe extends javax.swing.JFrame {
         date_from = new com.toedter.calendar.JDateChooser();
         date_to = new com.toedter.calendar.JDateChooser();
         btn_Loc = new javax.swing.JButton();
+        label_TongTien = new javax.swing.JLabel();
         btn_Truoc = new javax.swing.JButton();
         label_Page = new javax.swing.JLabel();
         btn_Sau = new javax.swing.JButton();
@@ -190,9 +199,11 @@ public class Thongkeluotguixe extends javax.swing.JFrame {
 
         txt_Tim.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        Combobox_Categories.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Vé tháng", "Vé ngày" }));
+        Combobox_Categories.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vé tháng", "Vé ngày" }));
 
         btn_Loc.setText("Lọc");
+
+        label_TongTien.setText("Tổng tiền: ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -214,7 +225,8 @@ public class Thongkeluotguixe extends javax.swing.JFrame {
                                         .addComponent(jLabel2)
                                         .addComponent(date_from, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                                         .addComponent(date_to, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(btn_Loc, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btn_Loc, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(label_TongTien, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 25, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -235,7 +247,9 @@ public class Thongkeluotguixe extends javax.swing.JFrame {
                 .addComponent(date_to, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Loc)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label_TongTien)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         btn_Truoc.setText("Trang trước");
@@ -270,9 +284,9 @@ public class Thongkeluotguixe extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(285, 285, 285)
                 .addComponent(btn_Truoc)
-                .addGap(18, 18, 18)
-                .addComponent(label_Page)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
+                .addComponent(label_Page, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(btn_Sau)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -369,6 +383,7 @@ public class Thongkeluotguixe extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel label_Page;
+    private javax.swing.JLabel label_TongTien;
     private javax.swing.JTable table_ThongKe;
     private javax.swing.JTextField txt_Tim;
     // End of variables declaration//GEN-END:variables

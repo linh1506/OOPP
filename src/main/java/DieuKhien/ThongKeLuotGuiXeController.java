@@ -10,7 +10,6 @@ import GiaoDien.Thongkeluotguixe;
 import Repository.VeNgayGuiRepository;
 import Repository.VeThangGuiRepository;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ public class ThongKeLuotGuiXeController {
     private Thongkeluotguixe thongkeluotguixe = null;
     private DefaultTableModel model;
     private int Page = 1;
-    private boolean TimTheoVeThang = false;
+    private boolean TimTheoVeThang = true;
     private boolean TimTheoVeNgay = false;
     private LocalDateTime from = null;
     private LocalDateTime to = null;
@@ -71,25 +70,75 @@ public class ThongKeLuotGuiXeController {
         this.TimTheoVeNgay = TimTheoVeNgay;
     }
     
+    public void Start() {
+        int offset = (getPage()-1)*12;
+        InDSVeThang(offset,null);
+        this.thongkeluotguixe.getLabel_Page().setText(String.valueOf(getPage()));
+    }
+    
     public void Loc() {
         this.thongkeluotguixe.getBtn_Loc().addActionListener((e) -> {
             Date a = this.thongkeluotguixe.getDate_from().getDate();
             setFrom(convertToLocalDateTimeViaMilisecond(a));
             Date b = this.thongkeluotguixe.getDate_to().getDate();
             setTo(convertToLocalDateTimeViaMilisecond(b));
-            if (this.thongkeluotguixe.getCombobox_Categories().getSelectedItem().toString().equals("Vé tháng")){
+            String vePhaiTim = this.thongkeluotguixe.getTxt_Tim().getText();
+            if (vePhaiTim.equals("")) {
+                vePhaiTim = null;
+            }
+            if (isTimTheoVeNgay()==false && isTimTheoVeThang()==true){
                 setPage(1);
+                hideBtnPageForward();
                 int offset = (getPage()-1)*12;
-                InDSVeThang(offset);
+                InDSVeThang(offset,vePhaiTim);
+                this.thongkeluotguixe.getLabel_Page().setText(String.valueOf(getPage()));
+
+            }
+            else if (isTimTheoVeNgay()==true && isTimTheoVeThang()==false){
+                setPage(1);
+                hideBtnPageForward();
+                int offset = (getPage()-1)*12;
+                
+                InDSVeNgay(offset,vePhaiTim);
+                this.thongkeluotguixe.getLabel_Page().setText(String.valueOf(getPage()));
             }
         });
     }
     
     public LocalDateTime convertToLocalDateTimeViaMilisecond(Date dateToConvert) {
+        if (dateToConvert == null) return null;
         return Instant.ofEpochMilli(dateToConvert.getTime())
             .atZone(ZoneId.systemDefault())
             .toLocalDateTime();
-}
+    }
+    
+    public void Tim() {
+        this.thongkeluotguixe.getBtn_Tim().addActionListener((e) -> {
+            String tim = this.thongkeluotguixe.getTxt_Tim().getText();
+            if (tim.startsWith("VT")) {
+                setPage(1);
+                hideBtnPageForward();
+                int offset = (getPage()-1)*12;
+                InDSVeThang(offset, tim);
+            }
+            else if (tim.startsWith("VN")) {
+                setPage(1);
+                hideBtnPageForward();
+                int offset = (getPage()-1)*12;
+                InDSVeNgay(offset, tim);
+            }
+        });
+    }
+    
+    public void hideBtnPageForward() {
+        if (getPage() == 1) {
+            this.thongkeluotguixe.getBtn_Truoc().setVisible(false);
+        }
+        else {
+            this.thongkeluotguixe.getBtn_Truoc().setVisible(true);
+
+        }
+    }
     
     public ThongKeLuotGuiXeController(MenuQuanLyController menuQuanLyController) {
         this.menuQuanLyController = menuQuanLyController;
@@ -102,6 +151,9 @@ public class ThongKeLuotGuiXeController {
         Sau();
         Truoc();
         Loc();
+        Start();
+        hideBtnPageForward();
+        Tim();
     }
 
     public DefaultTableModel getModel() {
@@ -114,17 +166,18 @@ public class ThongKeLuotGuiXeController {
     
     public void CheckBox() {
         this.thongkeluotguixe.getCombobox_Categories().addActionListener((e) -> {
+            this.thongkeluotguixe.getTxt_Tim().setText("");
             String categories = this.thongkeluotguixe.getCombobox_Categories().getSelectedItem().toString();
             if (categories.equals("Vé tháng")) {
                 int offset = (getPage()-1)*12;
-                InDSVeThang(offset);
+                InDSVeThang(offset,null);
                 setTimTheoVeNgay(false);
                 setTimTheoVeThang(true);
                 setPage(1);
                 this.thongkeluotguixe.getLabel_Page().setText(String.valueOf(getPage()));
             } 
             else if (categories.equals("Vé ngày")) {
-                InDSVeNgay(0);
+                InDSVeNgay(0,null);
                 setTimTheoVeNgay(true);
                 setTimTheoVeThang(false);
                 setPage(1);
@@ -138,14 +191,19 @@ public class ThongKeLuotGuiXeController {
             int i = getPage();
             i++;
             setPage(i);
+            hideBtnPageForward();
+            String vePhaiTim = this.thongkeluotguixe.getTxt_Tim().getText();
+            if (vePhaiTim.equals("")) {
+                vePhaiTim = null;
+            }
             if (TimTheoVeThang == true) {
                 int offset = (getPage()-1)*12;
-                InDSVeThang(offset);
+                InDSVeThang(offset,vePhaiTim);
                 this.thongkeluotguixe.getLabel_Page().setText(String.valueOf(getPage()));
             }
             else if (TimTheoVeNgay == true) {
                 int offset = (getPage()-1)*12;
-                InDSVeNgay(offset);
+                InDSVeNgay(offset,vePhaiTim);
                 this.thongkeluotguixe.getLabel_Page().setText(String.valueOf(getPage()));
             }
         });
@@ -156,24 +214,35 @@ public class ThongKeLuotGuiXeController {
             int i = getPage();
             i--;
             setPage(i);
+            hideBtnPageForward();
+            String vePhaiTim = this.thongkeluotguixe.getTxt_Tim().getText();
+            if (vePhaiTim.equals("")) {
+                vePhaiTim = null;
+            }
             if (TimTheoVeThang == true) {
                 int offset = (i-1)*12;
-                InDSVeThang(offset);
+                InDSVeThang(offset,vePhaiTim);
                 this.thongkeluotguixe.getLabel_Page().setText(String.valueOf(getPage()));
             }
             else if (TimTheoVeNgay == true) {
                 int offset = (i-1)*12;
-                InDSVeNgay(offset);
+                InDSVeNgay(offset,vePhaiTim);
                 this.thongkeluotguixe.getLabel_Page().setText(String.valueOf(getPage()));
             }
         });
     }
     
-    public void InDSVeThang(int offset) {
-        ArrayList<VeThangGui> list = VeThangGuiRepository.getVeThangGuiByID("VT", offset, getTo(), getFrom());
+    public void InDSVeThang(int offset, String vephaitim) {
+        if (vephaitim == null) {
+            vephaitim = "VT";
+        }
+        ArrayList<VeThangGui> list = VeThangGuiRepository.getVeThangGuiByID(vephaitim, offset, getTo(), getFrom());
+        ArrayList<VeThangGui> list2 = VeThangGuiRepository.getVeThangGuiByID(vephaitim, getPage()*12, getTo(), getFrom()); 
         getModel().setRowCount(0);
-        if (list.size()==0) {
-            System.out.println("Rong");
+        if (list2.size()==0) {
+            this.thongkeluotguixe.getBtn_Sau().setVisible(false);
+        } else {
+            this.thongkeluotguixe.getBtn_Sau().setVisible(true);
         }
         for (VeThangGui a:list) {
             String Tra;
@@ -186,15 +255,42 @@ public class ThongKeLuotGuiXeController {
             String oblist[] = {a.getIDVe(),a.getBienSoXe(),a.getThoiGianGui().toString(),Tra,"0"};
             getModel().addRow(oblist);
         }
+        this.thongkeluotguixe.getLabel_TongTien().setText("0");
     }
     
-    public void InDSVeNgay(int offset) {
-        ArrayList<VeNgayGui> list = VeNgayGuiRepository.getVeNgayGuiByID("VN", offset);
+    public void InDSVeNgay(int offset, String vephaitim) {
+        if (vephaitim == null) {
+            vephaitim = "VN";
+        }
+        ArrayList<VeNgayGui> list = VeNgayGuiRepository.getVeNgayGuiByID(vephaitim, offset, getTo(), getFrom());
+        ArrayList<VeNgayGui> list2 = VeNgayGuiRepository.getVeNgayGuiByID(vephaitim, getPage()*12, getTo(), getFrom());
+        if (list2.size()==0) {
+            this.thongkeluotguixe.getBtn_Sau().setVisible(false);
+        } else {
+            this.thongkeluotguixe.getBtn_Sau().setVisible(true);
+        }
         getModel().setRowCount(0);
+        int TongGia = 0;
         for (VeNgayGui a:list) {
-            String oblist[] = {a.getIDVe(),a.getBienSoXe(),a.getThoiGianGui().toString(),a.getThoiGianTra().toString(),String.valueOf(a.getGia())};
+            String Tra;
+            int Gia;
+            if (a.getThoiGianTra() == null ) {
+                Tra = "Chưa trả";
+                Gia=0;
+            }
+            else {
+                Tra = a.getThoiGianTra().toString();
+                Gia = a.getGia();
+            }
+            TongGia += Gia;
+            String oblist[] = {a.getIDVe(),a.getBienSoXe(),a.getThoiGianGui().toString(),Tra,String.valueOf(Gia)};
             getModel().addRow(oblist);
         }
+        String IDVe = this.thongkeluotguixe.getTxt_Tim().getText();
+        if (IDVe.equals("")) {
+            IDVe="VT";
+        }
+        this.thongkeluotguixe.getLabel_TongTien().setText("Tổng tiền: "+String.valueOf(VeNgayGuiRepository.getTongTien(IDVe, getTo(), getFrom())));
     }
     
     public void Exit() {
