@@ -100,6 +100,22 @@ public class Thongkeluotdangkyvethang extends javax.swing.JFrame {
     public void setjTextField_tim(JTextField jTextField_tim) {
         this.jTextField_tim = jTextField_tim;
     }
+
+    public JButton getBtn_reset() {
+        return btn_reset;
+    }
+
+    public void setBtn_reset(JButton btn_reset) {
+        this.btn_reset = btn_reset;
+    }
+
+    public JLabel getjLabel_offset() {
+        return jLabel_offset;
+    }
+
+    public void setjLabel_offset(JLabel jLabel_offset) {
+        this.jLabel_offset = jLabel_offset;
+    }
     
     
     
@@ -132,8 +148,10 @@ public class Thongkeluotdangkyvethang extends javax.swing.JFrame {
         jDateChooser_To = new com.toedter.calendar.JDateChooser();
         btn_filter = new javax.swing.JButton();
         jLabel_tongtien = new javax.swing.JLabel();
+        btn_reset = new javax.swing.JButton();
         btn_prev = new javax.swing.JButton();
         btn_next = new javax.swing.JButton();
+        jLabel_offset = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -229,6 +247,13 @@ public class Thongkeluotdangkyvethang extends javax.swing.JFrame {
 
         btn_filter.setText("Filter");
 
+        btn_reset.setText("reset");
+        btn_reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_resetActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -238,13 +263,15 @@ public class Thongkeluotdangkyvethang extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDateChooser_From, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDateChooser_To, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_filter)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_reset)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel_tongtien, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -258,12 +285,13 @@ public class Thongkeluotdangkyvethang extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel6)
                         .addComponent(btn_filter)
-                        .addComponent(jLabel_tongtien, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel_tongtien, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_reset))
                     .addComponent(jDateChooser_To, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jDateChooser_From, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel5)))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel4)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -280,6 +308,9 @@ public class Thongkeluotdangkyvethang extends javax.swing.JFrame {
                 btn_nextActionPerformed(evt);
             }
         });
+
+        jLabel_offset.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_offset.setText("1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -305,7 +336,9 @@ public class Thongkeluotdangkyvethang extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(271, 271, 271)
                                 .addComponent(btn_prev)
-                                .addGap(95, 95, 95)
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel_offset, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
                                 .addComponent(btn_next)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -329,7 +362,8 @@ public class Thongkeluotdangkyvethang extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_prev)
-                            .addComponent(btn_next)))
+                            .addComponent(btn_next)
+                            .addComponent(jLabel_offset)))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -357,6 +391,10 @@ public class Thongkeluotdangkyvethang extends javax.swing.JFrame {
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_nextActionPerformed
+
+    private void btn_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_resetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -399,6 +437,7 @@ public class Thongkeluotdangkyvethang extends javax.swing.JFrame {
     private javax.swing.JButton btn_filter;
     private javax.swing.JButton btn_next;
     private javax.swing.JButton btn_prev;
+    private javax.swing.JButton btn_reset;
     private com.toedter.calendar.JDateChooser jDateChooser_From;
     private com.toedter.calendar.JDateChooser jDateChooser_To;
     private javax.swing.JLabel jLabel1;
@@ -406,6 +445,7 @@ public class Thongkeluotdangkyvethang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel_offset;
     private javax.swing.JLabel jLabel_tongtien;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

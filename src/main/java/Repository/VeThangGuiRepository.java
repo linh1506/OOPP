@@ -59,8 +59,17 @@ public class VeThangGuiRepository {
         return list;
     }
     
-    public static ArrayList<VeThangGui> getVeThangGuiByID(String s,int offset) {
-        String query = "SELECT * FROM `vethanggui` WHERE `IDVe` LIKE '"+s+"%' "+"LIMIT 12 OFFSET "+String.valueOf(offset)+";";
+    public static ArrayList<VeThangGui> getVeThangGuiByID(String s,int offset, LocalDateTime to, LocalDateTime from) {
+        String query="";
+        if (to == null && from == null) {
+            query = "SELECT * FROM `vethanggui` WHERE `IDVe` LIKE '"+s+"%' "+"LIMIT 12 OFFSET "+String.valueOf(offset)+";";            
+        } else if (to != null && from == null) {
+            query = "SELECT *  FROM `vethanggui` WHERE `ThoiGianTra` < '"+to+"'"+"LIMIT 12 OFFSET "+String.valueOf(offset)+";";
+        } else if (to == null && from != null) {
+            query = "SELECT *  FROM `vethanggui` WHERE `ThoiGianGui` > '"+from+"'"+"LIMIT 12 OFFSET "+String.valueOf(offset)+";";
+        } else if (to != null && from != null) {
+            query = "SELECT *  FROM `vethanggui` WHERE `ThoiGianGui` > '"+from+"' AND `ThoiGianTra` < '"+to+"' "+"LIMIT 12 OFFSET "+String.valueOf(offset)+";";
+        }
         ArrayList<VeThangGui> list = new ArrayList<>();
         Statement stmt = null;
         ResultSet rs = null;

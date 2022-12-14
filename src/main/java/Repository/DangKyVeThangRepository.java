@@ -42,6 +42,33 @@ public class DangKyVeThangRepository {
         return list;
     }
     
+    public static DangKyVeThang getVeThangByIDAndThoiGianKetThuc(String IDVe, LocalDateTime localDateTime) {
+        String query = "SELECT * FROM `dangkyvethang` WHERE `ThoiGianKetThuc` > '"+localDateTime+"' AND `IDVeThang` LIKE '"+IDVe+"'";
+        Statement stmt = null;
+        ResultSet rs = null;
+        DangKyVeThang a = null;
+        try {
+            stmt = DatabaseConnect.getConnection().createStatement();
+            rs = stmt.executeQuery(query);
+            rs.next();
+            if (rs != null) {
+                a = new DangKyVeThang(
+                        rs.getInt(1), 
+                        rs.getString(2), 
+                        rs.getString(3), 
+                        rs.getObject(4, LocalDateTime.class),
+                        rs.getObject(5, LocalDateTime.class), 
+                        rs.getString(6), 
+                        rs.getString(7));
+                return a;
+            }    
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return a;
+    }
+    
     public static int DangKyVeThang(DangKyVeThang a) {
         String query = "INSERT INTO `dangkyvethang` (`ID`, `TenKhach`, `SoDienThoai`, `ThoiGianDangKy`, `ThoiGianKetThuc`, `IDVeThang`, `BienSoXe`) VALUES "
                 + "(NULL, '"
@@ -90,7 +117,6 @@ public class DangKyVeThangRepository {
                 list.add(p);
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return list;
     }
@@ -158,4 +184,5 @@ public class DangKyVeThangRepository {
         }
         return list;
     }
+    
 }
